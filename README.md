@@ -8,11 +8,11 @@ Instead of just counting commits, this project focuses on understanding **how** 
 
 ## 🚀 What it does
 
-* 📊 Analyzes commit activity across multiple repositories
+*  Analyzes commit activity across multiple repositories
 * ⏱ Detects most active working hours
-* 🔁 Calculates consistency and streak patterns
-* ⚡ Identifies activity spikes and drops
-* 🧠 Generates human-readable behavioral insights
+*  Calculates consistency and streak patterns
+*  Identifies activity spikes and drops
+*  Generates human-readable behavioral insights
 
 ---
 
@@ -52,6 +52,7 @@ Streak Analysis:
 Longest Streak: 6 days
 
 ⚠️ Behavior Alerts:
+
 📈 Major spike in activity on 2026-02-28
 ⚠️ Significant drop in activity on 2026-04-30
 ```
@@ -68,10 +69,10 @@ Longest Streak: 6 days
 
 ## 🌱 Future Improvements
 
-* 📈 Interactive dashboard (Streamlit / React)
-* 🔐 GitHub token-based authentication
-* 📊 Advanced anomaly detection
-* 🧠 Machine learning-based pattern classification
+*  Interactive dashboard (Streamlit / React)
+*  GitHub token-based authentication
+*  Advanced anomaly detection
+*  Machine learning-based pattern classification
 
 ---
 
