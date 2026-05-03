@@ -1,4 +1,4 @@
-# 🧠 Behavioral Activity Monitor
+# 🧠 Behavioural Activity Monitor
 
 A system that analyzes developer activity patterns from GitHub commits to uncover behavioral insights.
 
