@@ -1,6 +1,11 @@
 from datetime import datetime
 import requests
 from datetime import timedelta
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
 
 def get_repo_commits(username, repo):
     commit_times = []
@@ -10,7 +15,8 @@ def get_repo_commits(username, repo):
         url = f"https://api.github.com/repos/{username}/{repo}/commits?per_page=100&page={page}"
         
         headers = {
-            "Accept": "application/vnd.github+json"
+            "Accept": "application/vnd.github+json",
+             "Authorization": f"token {os.getenv('GITHUB_TOKEN')}"
         }
 
         response = requests.get(url, headers=headers)
@@ -158,17 +164,26 @@ print(insight)
 
 # Step 8: Streak Detection
 
-sorted_dates = sorted(set(recent_dates))
+sorted_dates = sorted(set(dates))
 
-current_streak = 1
-max_streak = 1
+max_streak = 0
+current_streak = 0
 
-for i in range(1, len(sorted_dates)):
-    if (sorted_dates[i] - sorted_dates[i - 1]).days == 1:
-        current_streak += 1
-        max_streak = max(max_streak, current_streak)
-    else:
+prev_date = None
+
+for d in sorted_dates:
+    if prev_date is None:
         current_streak = 1
+    else:
+        gap = (d - prev_date).days
+
+        if gap == 1:
+            current_streak += 1
+        else:
+            current_streak = 1
+
+    max_streak = max(max_streak, current_streak)
+    prev_date = d
 
 # Step 9: Anomaly Detection
 
@@ -186,7 +201,7 @@ for day, count in daily_counts.items():
 
 anomalies = anomalies[:5]
 print("\nStreak Analysis:")
-print("Longest Streak:", max_streak, "days")
+print("Longest Commit Streak:", max_streak, "days")
 
 print("\n⚠️ Behavior Alerts:\n\n")
 if anomalies:
