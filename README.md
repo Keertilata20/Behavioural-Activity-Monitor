@@ -49,7 +49,7 @@ Insight:
 You show a bursty work pattern with high activity levels, mostly during night hours.
 
 Streak Analysis:
-Longest Streak: 12 days
+Longest Streak: 7 days
 
 ⚠️ Behavior Alerts:
 
