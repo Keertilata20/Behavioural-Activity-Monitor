@@ -9,7 +9,7 @@ Instead of just counting commits, this project focuses on understanding **how** 
 ## 🚀 What it does
 
 *  Analyzes commit activity across multiple repositories
-* ⏱ Detects most active working hours
+*  Detects most active working hours
 *  Calculates consistency and streak patterns
 *  Identifies activity spikes and drops
 *  Generates human-readable behavioral insights
