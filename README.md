@@ -42,14 +42,14 @@ This system transforms raw commit history into meaningful interpretations like:
 
 ```
 --- Behavior Summary ---
-Most active time: Morning
+Most active time: Night
 Consistency Score: 17%
 
 Insight:
-You show a bursty work pattern with high activity levels, mostly during morning hours.
+You show a bursty work pattern with high activity levels, mostly during night hours.
 
 Streak Analysis:
-Longest Streak: 6 days
+Longest Streak: 12 days
 
 ⚠️ Behavior Alerts:
 
