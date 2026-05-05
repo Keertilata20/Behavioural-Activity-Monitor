@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ✅ Run analysis AFTER config
+# ✅ Run analysis AFTER configuration
 data = run_analysis()
 
 # Header
@@ -102,6 +102,9 @@ st.markdown('</div>', unsafe_allow_html=True)
 # -------------------
 # ACTIVITY TREND
 # -------------------
+
+
+
 st.divider()
 st.markdown('<div class="card">', unsafe_allow_html=True)
 st.subheader("📈 Activity Trend")
