@@ -43,7 +43,7 @@ This system transforms raw commit history into meaningful interpretations like:
 ```
 --- Behavior Summary ---
 Most active time: Night
-Consistency Score: 17%
+Consistency Score: 51%
 
 Insight:
 You show a bursty work pattern with high activity levels, mostly during night hours.
