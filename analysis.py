@@ -24,7 +24,7 @@ def run_analysis():
         "AI-Risk-lab",
         "keerti-contact-card",
         "Travel-Website",
-        "Team_Cygnus"
+        
     ]
 
     headers = {
