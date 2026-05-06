@@ -1,0 +1,110 @@
+body {
+
+    background:
+    radial-gradient(circle at top left, #101827, #050816 75%);
+
+    color: white;
+}
+
+
+/* MAIN PAGE */
+
+.main .block-container {
+
+    padding-top: 2rem;
+    max-width: 1450px;
+}
+
+
+/* SIDEBAR */
+
+section[data-testid="stSidebar"] {
+
+    background: #0b1120;
+    border-right: 1px solid rgba(255,255,255,0.06);
+
+    width: 320px !important;
+    color: white;
+}
+
+
+/* GLASS CARD */
+
+.glass-card {
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(17,24,39,0.92),
+        rgba(30,41,59,0.82)
+    );
+
+    border:
+    1px solid rgba(255,255,255,0.06);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(12px);
+
+    margin-bottom: 24px;
+    color: white;
+}
+
+
+/* SECTION TITLES */
+
+.section-title {
+
+    font-size: 30px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    color: white;
+}
+
+
+/* SUBTEXT */
+
+.muted {
+
+    color: #94a3b8;
+}
+
+
+/* STREAMLIT FIXES */
+
+header {
+    visibility: hidden;
+}
+
+[data-testid="stToolbar"] {
+    right: 1rem;
+}
+
+
+/* METRIC CARD */
+
+[data-testid="metric-container"] {
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(15,23,42,0.95),
+        rgba(30,41,59,0.75)
+    );
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    margin-bottom: 16px;
+}

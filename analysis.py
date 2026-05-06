@@ -178,13 +178,26 @@ def run_analysis():
     # -----------------------
     # FINAL OUTPUT
     # -----------------------
+
+    if most_active_time == "Night":
+      persona = "🌙 Night Owl Developer"
+
+    elif consistency > 70:
+      persona = "📅 Consistent Builder"
+
+    elif current_streak > 10:
+      persona = "🔥 Streak Machine"
+
+    else:
+      persona = "⚡ Burst Coder"
     return {
         "dates": dates,
         "most_active_time": most_active_time,
         "consistency": consistency,
         "insight": insight,
         "streak": max_streak,
-        "anomalies": anomalies,
+        "anomalies": anomalies, 
+        "persona": persona,
         "total_commits": len(commit_times)
     }
     
