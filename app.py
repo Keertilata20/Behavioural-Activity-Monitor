@@ -33,6 +33,9 @@ st.markdown("""
     border-radius: 18px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     margin-bottom: 20px;
+            color: white;
+             background: linear-gradient(135deg, #111827, #1f2937);
+    border: 1px solid rgba(255,255,255,0.05);
 }
 .metric-card {
     background: #1f2937;
@@ -40,6 +43,11 @@ st.markdown("""
     border-radius: 14px;
     text-align: center;
             color: white;
+            transition: all 0.2s ease;
+}
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
 }
 </style>
 """, unsafe_allow_html=True)
@@ -93,11 +101,22 @@ st.markdown(f"""
     font-size: 16px;
             color: white;
 '>
-💡 {data["insight"]}
+            
+ {
+    if data["consistency"] < 50:
+        suggestion = "📌 Try committing daily to build consistency."
+  elif data["streak"] > 10:
+    suggestion = "🔥 Keep the streak going! You're in peak flow."
+  else:
+    suggestion = "⚡ Increase frequency to stabilize your pattern."
+     
+ }
 </div>
 """, unsafe_allow_html=True)
 
+
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 # -------------------
 # ACTIVITY TREND
@@ -138,17 +157,57 @@ ax.set_ylabel("Commits")
 st.pyplot(fig)
 st.markdown('</div>', unsafe_allow_html=True)
 
+
+# -------------
+# STREAK TIMELINES
+# -------------
+
+st.markdown("### 🔥 Streak Timeline")
+
+for d in sorted(set(data["dates"]))[-14:]:
+    st.write(f"🟩 {d}")
+
+# -------------
+# PERSONA
+# -------------
+
+if data["most_active_time"] == "Night":
+    persona = "🌙 Night Owl Developer"
+elif data["consistency"] > 70:
+    persona = "📅 Consistent Builder"
+elif data["streak"] > 10:
+    persona = "🔥 Streak Machine"
+else:
+    persona = "⚡ Burst Coder"
+
+st.markdown(f"""
+<div class="metric-card">
+<h3>🧠 Developer Persona</h3>
+<h2>{persona}</h2>
+</div>
+""", unsafe_allow_html=True)
+
+
 # -------------------
 # ALERTS
 # -------------------
 st.divider()
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("⚠️ Behavior Alerts")
+col1, col2 = st.columns([2,1])
 
-for a in data["anomalies"]:
-    if "drop" in a:
-        st.warning(a)
-    else:
-        st.success(a)
+with col1:
+    range_option = st.selectbox(
+        "📅 Time Range",
+        ["30 Days", "90 Days", "All Time"]
+    )
+
+with col2:
+    show_anomalies = st.toggle("⚠️ Show Alerts", True)
+if show_anomalies:
+    for a in data["anomalies"]:
+        if "drop" in a:
+            st.warning(a)
+        else:
+            st.success(a)
 
 st.markdown('</div>', unsafe_allow_html=True)
