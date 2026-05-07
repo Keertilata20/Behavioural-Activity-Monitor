@@ -183,14 +183,41 @@ header {
 
 .metric-title {
 
-    color: #94a3b8;
+    color: #0b59c5;
     margin: 0;
     font-size: 14px;
 }
 
 .metric-value {
 
-    color: white;
+    color: rgb(215, 12, 12);
     margin: 0;
     font-size: 34px;
+}
+
+.heatmap-cell {
+
+    height: 28px;
+    width: 28px;
+
+    border-radius: 8px;
+
+    margin: auto;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,0.3);
+
+    transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+    cursor: pointer;
+}
+
+.heatmap-cell:hover {
+
+    transform: scale(1.12);
+
+    box-shadow:
+    0 8px 18px rgba(34,197,94,0.4);
 }

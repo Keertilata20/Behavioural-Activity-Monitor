@@ -25,26 +25,19 @@ def render_heatmap(data):
         with cols[i % 7]:
 
             st.markdown(f"""
-            <div style="
-                height:28px;
-width:28px;
-border-radius:8px;
-                background:{colors[intensity]};
-                margin:auto;
-                box-shadow:0 4px 12px rgba(0,0,0,0.3);
-                transition: 0.2s ease;
-cursor: pointer;
-transform: scale(1.08);
-            ">
-            </div>
+<div class="heatmap-cell"
+style="
+    background:{colors[intensity]};
+">
+</div>
 
-            <p style='
-            text-align:center;
-            font-size:11px;
-            color:gray;
-            '>
-            {d.strftime("%d")}
-            </p>
-            """, unsafe_allow_html=True)
+<p style='
+text-align:center;
+font-size:11px;
+color:gray;
+'>
+{d.strftime("%d")}
+</p>
+""", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)

@@ -10,18 +10,24 @@ def render_analytics_cards(data):
 
     for icon, title, value in cards:
 
-        st.markdown(f'''
+        st.markdown(f"""
         <div class="metric-card">
 
-            <div class="metric-icon">{icon}</div>
+            <div class="metric-icon">
+                {icon}
+            </div>
 
             <div class="metric-content">
 
-                <p class="metric-title">{title}</p>
+                <p class="metric-title">
+                    {title}
+                </p>
 
-                <h2 class="metric-value">{value}</h2>
+                <h2 class="metric-value">
+                    {value}
+                </h2>
 
             </div>
 
         </div>
-        ''', unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
