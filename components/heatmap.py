@@ -26,12 +26,15 @@ def render_heatmap(data):
 
             st.markdown(f"""
             <div style="
-                height:45px;
-                width:45px;
-                border-radius:12px;
+                height:28px;
+width:28px;
+border-radius:8px;
                 background:{colors[intensity]};
                 margin:auto;
                 box-shadow:0 4px 12px rgba(0,0,0,0.3);
+                transition: 0.2s ease;
+cursor: pointer;
+transform: scale(1.08);
             ">
             </div>
 
