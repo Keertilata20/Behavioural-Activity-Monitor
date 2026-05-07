@@ -41,3 +41,22 @@ color:gray;
 """, unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
+    st.markdown("""
+<div class="glass-card">
+
+<h2 class="section-title">
+🧠 AI Behavioral Insight
+</h2>
+
+<p class="muted" style="font-size:18px; line-height:1.8;">
+
+This developer demonstrates strong burst productivity,
+particularly during afternoon coding sessions. Activity
+patterns suggest focused deep-work cycles with moderate
+consistency retention and occasional high-intensity spikes.
+
+</p>
+
+</div>
+""", unsafe_allow_html=True)
