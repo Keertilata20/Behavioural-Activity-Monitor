@@ -4,16 +4,19 @@ from analysis import run_analysis
 
 from components.sidebar import render_sidebar
 from components.hero import render_hero
-from components.analytics_cards import render_analytics_cards
+from components.ai_insights import render_ai_insight
 from components.activity_chart import render_activity_chart
 from components.heatmap import render_heatmap
+from components.analytics_cards import render_analytics_cards
 from components.diagnostics import render_diagnostics
 
 
 st.set_page_config(
     page_title="BAM",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
+
 
 
 def load_css():
@@ -33,29 +36,36 @@ def load_css():
 data = run_analysis()
 load_css()
 
+
 # SIDEBAR
-render_sidebar(data)
+render_sidebar()
+
 
 # HERO
 render_hero(data)
 
-st.markdown("<br>", unsafe_allow_html=True)
 
-# CHART + ANALYTICS SIDE BY SIDE
-left, right = st.columns([4, 1])
+# METRICS
+render_analytics_cards(data)
+
+
+# MAIN GRID
+left, right = st.columns([2.2, 1])
+
 
 with left:
+
     render_activity_chart(data)
 
+    st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
+
+    render_heatmap(data)
+
+
 with right:
-    render_analytics_cards(data)
 
-st.markdown("<br>", unsafe_allow_html=True)
+    render_ai_insight(data)
 
-# HEATMAP
-render_heatmap(data)
+    st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
 
-st.markdown("<br>", unsafe_allow_html=True)
-
-# DIAGNOSTICS
-render_diagnostics(data)
+    render_diagnostics(data)
