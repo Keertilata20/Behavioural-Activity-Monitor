@@ -176,24 +176,7 @@ header {
     0 10px 30px rgba(0,0,0,0.25);
 }
 
-.metric-icon {
 
-    font-size: 30px;
-}
-
-.metric-title {
-
-    color: #0b59c5;
-    margin: 0;
-    font-size: 14px;
-}
-
-.metric-value {
-
-    color: rgb(215, 12, 12);
-    margin: 0;
-    font-size: 34px;
-}
 
 .heatmap-cell {
 

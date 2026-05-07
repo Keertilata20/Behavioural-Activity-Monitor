@@ -64,8 +64,24 @@ fillcolor="rgba(99,102,241,0.25)"
     height=420,
     margin=dict(l=10,r=10,t=20,b=10)
 )
+    st.markdown("""
+<div class="glass-card">
+<h2 class="section-title">
+📈 Activity Timeline
+</h2>
+<p class="muted">
+Developer productivity patterns over the last 90 days
+</p>
+</div>
+""", unsafe_allow_html=True)
 
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
+    fig,
+    use_container_width=True,
+    config={
+        "displayModeBar": False
+    }
+)
+    st.markdown('</div>', unsafe_allow_html=True)
+    
