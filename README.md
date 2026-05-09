@@ -38,26 +38,7 @@ This system transforms raw commit history into meaningful interpretations like:
 
 ---
 
-## 📊 Example Output
 
-```
---- Behavior Summary ---
-Most active time: Night
-Consistency Score: 51%
-
-Insight:
-You show a bursty work pattern with high activity levels, mostly during night hours.
-
-Streak Analysis:
-Longest Streak: 7 days
-
-⚠️ Behavior Alerts:
-
-📈 Major spike in activity on 2026-02-28
-⚠️ Significant drop in activity on 2026-04-30
-```
-
----
 
 ## 🛠 Tech Stack
 
