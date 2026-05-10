@@ -114,7 +114,7 @@ BAM currently analyzes:
 
 BAM is part of a broader idea:
 
-Building systems that do not merely collect activity data,
+> Building systems that do not merely collect activity data,
 but interpret human behavioral patterns through software interaction.
 
 The long-term direction includes:
