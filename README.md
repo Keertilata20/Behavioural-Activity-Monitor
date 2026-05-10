@@ -96,12 +96,13 @@ BAM currently analyzes:
 
 ## 🛠 Tech Stack
 
-* Current Stack
+#### Current Stack
 - Python
 - GitHub REST API
 - Datetime & aggregation analysis
 - Pattern detection logic
-* Planned Stack
+
+#### Planned Stack
 - React
 - Tailwind CSS
 - FastAPI
