@@ -153,7 +153,7 @@ BAM explores the intersection between: **Software Engineering × Behavioral Anal
 
 ---
 
-⭐ If you find the concept interesting, feel free to fork the project, open issues, or suggest improvements.
+⭐ ***If you find the concept interesting, feel free to fork the project, open issues, or suggest improvements.***
 
 ---
 
