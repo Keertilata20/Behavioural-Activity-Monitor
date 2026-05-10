@@ -5,7 +5,6 @@ from collections import defaultdict
 from datetime import timedelta
 
 
-
 def render_activity_chart(data):
 
     cutoff = max(data["dates"]) - timedelta(days=90)
@@ -31,7 +30,6 @@ def render_activity_chart(data):
 
 
     fig = go.Figure()
-
 
     fig.add_trace(go.Scatter(
 
@@ -77,26 +75,26 @@ def render_activity_chart(data):
     )
 
 
-    st.markdown("""
-    <div class="card">
+    with st.container():
 
-        <div class="section-title">
-        Activity Timeline
+        st.markdown("""
+        <div class="card">
+
+            <div class="section-title">
+            Activity Timeline
+            </div>
+
+            <div class="section-subtitle">
+            Last 90 days
+            </div>
+
         </div>
+        """, unsafe_allow_html=True)
 
-        <div class="section-subtitle">
-        Last 90 days
-        </div>
-    """, unsafe_allow_html=True)
-
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True,
-        config={
-            "displayModeBar": False
-        }
-    )
-
-
-    st.markdown("</div>", unsafe_allow_html=True)
+        st.plotly_chart(
+            fig,
+            use_container_width=True,
+            config={
+                "displayModeBar": False
+            }
+        )

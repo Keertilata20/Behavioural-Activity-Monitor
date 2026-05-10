@@ -1,11 +1,9 @@
 import streamlit as st
 
 
-
 def render_ai_insight(data):
 
     st.markdown(f"""
-
     <div class="ai-panel">
 
         <div class="section-title">
@@ -25,5 +23,4 @@ def render_ai_insight(data):
         </p>
 
     </div>
-
     """, unsafe_allow_html=True)
