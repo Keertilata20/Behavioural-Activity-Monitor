@@ -2,7 +2,7 @@ function App() {
 
   return (
 
-    <div className="min-h-screen bg-[#020617] text-[#f8fafc] flex overflow-hidden relative">
+    <div className="min-h-screen bg-[#030712] text-[#f8fafc] flex overflow-hidden relative">
       {/* atmospheric background */}
 
 {/* ATMOSPHERIC LIGHTING */}
@@ -63,11 +63,12 @@ function App() {
      relative z-10
 w-[260px]
 min-h-screen
-bg-black/40 backdrop-blur-xl
+bg-[#020617]/70 backdrop-blur-xl
 border-r border-white/5
 px-8
 py-10
 sticky top-0
+shadow-[inset_-1px_0_0_rgba(255,255,255,0.04)]
 ">
 
         <div>
@@ -155,7 +156,7 @@ font-medium
       relative z-10
       flex-1
       overflow-y-auto
-      bg-[radial-gradient(circle_at_top,#12203a_0%,#070b14_55%)]
+      
       ">
 
        <div className="
@@ -186,7 +187,8 @@ px-16 py-10
     </div>
   </div>
 
-  <p className="text-[22px] leading-[1.8] text-[#94a3b8] mt-16 max-w-[1100px] font-[350]">
+  <p className="text-[24px]
+leading-[1.8] text-[#94a3b8] mt-16 max-w-[900px] font-[350]">
     Analyze coding behavior, productivity rhythms,
     contribution intensity, and development momentum
     through GitHub activity intelligence.
