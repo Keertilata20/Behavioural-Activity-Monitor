@@ -5,11 +5,58 @@ function App() {
     <div className="min-h-screen bg-[#020617] text-[#f8fafc] flex overflow-hidden relative">
       {/* atmospheric background */}
 
-<div className="absolute inset-0 bg-[#020617]"></div>
+{/* ATMOSPHERIC LIGHTING */}
 
-<div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(37,99,235,0.18),transparent_30%),radial-gradient(circle_at_80%_30%,rgba(59,130,246,0.12),transparent_35%),radial-gradient(circle_at_50%_80%,rgba(14,165,233,0.08),transparent_35%)]"></div>
+<div className="absolute inset-0 overflow-hidden">
 
-<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,6,23,0.75)_100%)]"></div>
+  {/* top blue ambient light */}
+  <div className="
+  absolute
+  top-[-20%]
+  left-[20%]
+  w-[900px]
+  h-[900px]
+  rounded-full
+  bg-[#2563eb]
+  opacity-[0.12]
+  blur-[160px]
+  "></div>
+
+  {/* center glow */}
+  <div className="
+  absolute
+  top-[30%]
+  left-[40%]
+  w-[700px]
+  h-[700px]
+  rounded-full
+  bg-[#0ea5e9]
+  opacity-[0.08]
+  blur-[140px]
+  "></div>
+
+  {/* subtle bottom depth */}
+  <div className="
+  absolute
+  bottom-[-20%]
+  right-[-10%]
+  w-[800px]
+  h-[800px]
+  rounded-full
+  bg-[#1d4ed8]
+  opacity-[0.07]
+  blur-[180px]
+  "></div>
+
+  {/* vignette */}
+  <div className="
+  absolute inset-0
+  bg-[radial-gradient(circle_at_center,transparent_45%,rgba(2,6,23,0.82)_100%)]
+  "></div>
+
+</div>
+
+
 {/* SIDEBAR */}
 
      <aside className="
