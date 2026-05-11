@@ -3,55 +3,68 @@ function App() {
   return (
 
     <div className="min-h-screen bg-[#030712] text-[#f8fafc] flex overflow-hidden relative">
-      {/* atmospheric background */}
-
-{/* ATMOSPHERIC LIGHTING */}
+ {/* CINEMATIC BACKGROUND */}
 
 <div className="absolute inset-0 overflow-hidden">
 
-  {/* top blue ambient light */}
+  {/* deep base */}
+  <div className="absolute inset-0 bg-[#030712]"></div>
+
+  {/* left ambient beam */}
+  <div className="
+  absolute
+  top-[-10%]
+  left-[-15%]
+  w-[900px]
+  h-[1400px]
+  rotate-12
+  bg-gradient-to-b
+  from-[#2563eb]/20
+  via-[#1d4ed8]/8
+  to-transparent
+  blur-[120px]
+  "></div>
+
+  {/* center vertical glow */}
   <div className="
   absolute
   top-[-20%]
-  left-[20%]
-  w-[900px]
-  h-[900px]
-  rounded-full
-  bg-[#2563eb]
-  opacity-[0.12]
-  blur-[160px]
+  left-[35%]
+  w-[500px]
+  h-[1600px]
+  bg-gradient-to-b
+  from-[#3b82f6]/18
+  via-[#2563eb]/6
+  to-transparent
+  blur-[100px]
   "></div>
 
-  {/* center glow */}
+  {/* right atmospheric wash */}
   <div className="
   absolute
-  top-[30%]
-  left-[40%]
+  top-[10%]
+  right-[-10%]
   w-[700px]
-  h-[700px]
-  rounded-full
-  bg-[#0ea5e9]
-  opacity-[0.08]
+  h-[1200px]
+  rotate-[-8deg]
+  bg-gradient-to-b
+  from-[#0ea5e9]/10
+  via-[#2563eb]/5
+  to-transparent
   blur-[140px]
   "></div>
 
-  {/* subtle bottom depth */}
+  {/* subtle noise texture */}
   <div className="
-  absolute
-  bottom-[-20%]
-  right-[-10%]
-  w-[800px]
-  h-[800px]
-  rounded-full
-  bg-[#1d4ed8]
-  opacity-[0.07]
-  blur-[180px]
+  absolute inset-0
+  opacity-[0.03]
+  bg-[url('https://grainy-gradients.vercel.app/noise.svg')]
   "></div>
 
   {/* vignette */}
   <div className="
   absolute inset-0
-  bg-[radial-gradient(circle_at_center,transparent_45%,rgba(2,6,23,0.82)_100%)]
+  bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.92)_100%)]
   "></div>
 
 </div>
