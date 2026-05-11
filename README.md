@@ -13,12 +13,12 @@ Instead of treating commits as isolated events, BAM interprets them as behaviora
 
 ## ✨ Features
 
-- 📈 Analyze commit activity across multiple repositories
-- 🕒 Detect peak productivity hours
-- 🔥 Measure streaks and coding consistency
-- 🚨 Identify unusual activity spikes and drops
-- 🧠 Generate human-readable behavioral insights
-- 📊 Transform raw GitHub activity into behavioral intelligence
+-  Analyze commit activity across multiple repositories
+-  Detect peak productivity hours
+-  Measure streaks and coding consistency
+-  Identify unusual activity spikes and drops
+-  Generate human-readable behavioral insights
+-  Transform raw GitHub activity into behavioral intelligence
 
 ---
 
@@ -149,7 +149,9 @@ This project reflects interests in:
 * Human-centered analytics
 * Developer productivity research
 
-BAM explores the intersection between: **Software Engineering × Behavioral Analysis × AI**.
+BAM explores the intersection between: 
+
+> **Software Engineering × Behavioral Analysis × AI**.
 
 ---
 
