@@ -2,65 +2,91 @@ function App() {
 
   return (
 
-    <div className="min-h-screen bg-[#070b14] text-[#f0f6fc] flex overflow-hidden">
-
+    <div className="min-h-screen bg-[#020617] text-[#f8fafc] flex overflow-hidden relative">
+      <div className="fixed top-[-200px] right-[-150px] w-[500px] h-[500px] bg-blue-500/10 blur-[160px] rounded-full"></div>
+      <div className="fixed bottom-[-250px] left-[20%] w-[500px] h-[500px] bg-cyan-400/10 blur-[180px] rounded-full"></div>
+      
       {/* SIDEBAR */}
 
-      <aside className="
-      w-[250px]
-      min-h-screen
-      bg-[#0b1020]/95
-      border-r border-white/5
-      px-7 py-10
-      flex flex-col
-      justify-between
-      backdrop-blur-xl
-      ">
+     <aside className="
+w-[270px]
+min-h-screen
+border-r border-white/5
+bg-black/30
+backdrop-blur-xl
+px-8
+py-10
+sticky top-0
+">
 
         <div>
 
-          <h1 className="text-5xl font-black tracking-[-0.06em] leading-none">
+          <h1 className="text-5xl font-black tracking-[-0.08em]">
             BAM
           </h1>
 
-          <p className="text-[#8b949e] text-sm mt-3 leading-6">
-            Behaviour Intelligence
-          </p>
+          <p className="text-[#94a3b8] text-sm mt-3 leading-6">
+  Behaviour Intelligence System
+</p>
 
           <div className="mt-16">
 
             <p className="
-            text-[11px]
-            uppercase
-            tracking-[0.28em]
-            text-[#6e7681]
-            mb-7
-            font-semibold
-            ">
+group
+flex items-center
+gap-3
+text-[#94a3b8]
+hover:text-white
+transition-all
+duration-300
+cursor-pointer
+text-[15px]
+font-medium
+">
               Navigation
             </p>
 
             <div className="space-y-5 text-[16px]">
 
-              <div className="text-white font-medium cursor-pointer">
-                Dashboard
-              </div>
+              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[15px] font-medium">
 
-              <div className="text-[#8b949e] hover:text-white transition">
-                Timeline
-              </div>
+  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
 
-              <div className="text-[#8b949e] hover:text-white transition">
-                Heatmap
-              </div>
+  Dashboard
 
-              <div className="text-[#8b949e] hover:text-white transition">
-                Insights
-              </div>
+</div>
 
-              <div className="text-[#8b949e] hover:text-white transition">
-                Diagnostics
-              </div>
+              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[15px] font-medium">
+
+  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+
+  Timeline
+
+</div>
+
+              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[15px] font-medium">
+
+  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+
+  Heatmap
+
+</div>
+
+              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[15px] font-medium">
+
+  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+
+  Insights
+
+</div>
+
+              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[15px] font-medium">
+
+  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+
+  Diagnostics
+
+</div>
 
             </div>
 
@@ -80,12 +106,16 @@ function App() {
       bg-[radial-gradient(circle_at_top,#12203a_0%,#070b14_55%)]
       ">
 
-        <div className="max-w-[1400px] mx-auto px-16 py-14">
-
+       <div className="
+max-w-[1280px]
+mx-auto
+px-10
+py-10
+">
 
           {/* HERO */}
 
-          <section className="max-w-[950px]">
+          <section className="max-w-[780px]">
 
             <p className="
             text-[11px]
@@ -99,11 +129,12 @@ function App() {
 
 
             <h1 className="
-            text-[120px]
+            text-[70px]
             font-black
             tracking-[-0.08em]
             leading-[0.9]
             mt-4
+            tracking-[-0.12em]
             ">
               BAM
             </h1>
@@ -116,7 +147,7 @@ function App() {
               </span>
 
               <h2 className="
-              text-[64px]
+              text-5xl
               font-bold
               tracking-[-0.05em]
               text-[#58a6ff]
@@ -129,10 +160,11 @@ function App() {
 
             <p className="
             text-[#8b949e]
-            text-[24px]
+            text-xl
             leading-[1.8]
             mt-10
-            max-w-[920px]
+            max-w-[780px]
+            leading-[1.8]
             ">
 
               Analyze coding behavior, productivity rhythms,
@@ -149,7 +181,7 @@ function App() {
 
           <section className="
           grid
-          grid-cols-3
+          grid-cols-3 max-w-[980px]
           gap-6
           mt-16
           ">
@@ -162,6 +194,9 @@ function App() {
             backdrop-blur-xl
             hover:border-[#58a6ff]/20
             transition-all duration-300
+            bg-gradient-to-b from-white/[0.06] to-white/[0.015]
+            text-[52px]
+            shadow-[0_0_40px_rgba(0,0,0,0.35)]
             ">
 
               <p className="text-[#8b949e] text-sm">
@@ -169,7 +204,7 @@ function App() {
               </p>
 
               <h2 className="
-              text-[64px]
+              
               font-black
               tracking-[-0.05em]
               mt-4
@@ -189,6 +224,9 @@ function App() {
             backdrop-blur-xl
             hover:border-[#58a6ff]/20
             transition-all duration-300
+            text-[52px]
+            shadow-[0_0_40px_rgba(0,0,0,0.35)]
+            bg-gradient-to-b from-white/[0.06] to-white/[0.015]
             ">
 
               <p className="text-[#8b949e] text-sm">
@@ -196,7 +234,7 @@ function App() {
               </p>
 
               <h2 className="
-              text-[64px]
+              text-[52px]
               font-black
               tracking-[-0.05em]
               mt-4
@@ -216,6 +254,8 @@ function App() {
             backdrop-blur-xl
             hover:border-[#58a6ff]/20
             transition-all duration-300
+            bg-gradient-to-b from-white/[0.06] to-white/[0.015]
+            shadow-[0_0_40px_rgba(0,0,0,0.35)]
             ">
 
               <p className="text-[#8b949e] text-sm">
@@ -223,7 +263,7 @@ function App() {
               </p>
 
               <h2 className="
-              text-[54px]
+              text-[52px]
               font-black
               tracking-[-0.05em]
               mt-5
@@ -254,7 +294,7 @@ function App() {
             border border-white/5
             rounded-[32px]
             p-9
-            min-h-[650px]
+            min-h-[500px]
             backdrop-blur-xl
             ">
 
@@ -322,9 +362,10 @@ function App() {
               <div className="
               bg-white/[0.03]
               border border-white/5
-              rounded-[32px]
+              rounded-2xl px-5 py-4
               p-8
               backdrop-blur-xl
+              text-sm leading-7
               ">
 
                 <h3 className="
