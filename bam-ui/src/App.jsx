@@ -221,8 +221,8 @@ leading-[1.8] text-[#94a3b8] mt-16 max-w-[900px] font-[350]">
           ">
 
             <div className="
-            bg-[#101826]/80
-            border border-white/5
+            bg-[#0f172a]/70
+            border border-white/[0.06]
             rounded-[28px]
             p-7
             backdrop-blur-xl
@@ -231,7 +231,7 @@ hover:bg-[#131d2e]
 transition-all duration-300
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
             text-[52px]
-            shadow-[0_0_40px_rgba(0,0,0,0.35)]
+            shadow-[0_0_40px_rgba(0,0,0,0.45)]
             ">
 
               <p className="text-[#8b949e] text-sm">
@@ -252,8 +252,8 @@ transition-all duration-300
 
 
             <div className="
-            bg-[#101826]/80
-            border border-white/5
+            bg-[#0f172a]/70
+            border border-white/[0.06]
             rounded-[28px]
             p-7
             backdrop-blur-xl
@@ -261,7 +261,7 @@ transition-all duration-300
 hover:bg-[#131d2e]
 transition-all duration-300
             text-[52px]
-            shadow-[0_0_40px_rgba(0,0,0,0.35)]
+            shadow-[0_0_40px_rgba(0,0,0,0.45)]
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
             ">
 
@@ -283,8 +283,8 @@ transition-all duration-300
 
 
             <div className="
-            bg-[#101826]/80
-            border border-white/5
+            bg-[#0f172a]/70
+            border border-white/[0.06]
             rounded-[28px]
             p-7
             backdrop-blur-xl
@@ -292,7 +292,7 @@ transition-all duration-300
 hover:bg-[#131d2e]
 transition-all duration-300
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
-            shadow-[0_0_40px_rgba(0,0,0,0.35)]
+            shadow-[0_0_40px_rgba(0,0,0,0.45)]
             ">
 
               <p className="text-[#8b949e] text-sm">
