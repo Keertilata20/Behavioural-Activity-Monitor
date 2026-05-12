@@ -200,6 +200,17 @@ tracking-[-0.07em] leading-[0.9]  text-white">
         Burst Coder
       </h2>
     </div>
+    <div className="
+absolute
+top-[240px]
+left-[420px]
+w-[180px]
+h-[180px]
+bg-[#3b82f6]
+opacity-[0.18]
+blur-[120px]
+rounded-full
+"></div>
   </div>
 
   <p className="text-[24px]
@@ -373,7 +384,7 @@ max-w-[220px]
             <div className="
             bg-white/[0.03]
             border border-white/5
-            rounded-[32px]
+            rounded-[24px]
             p-9
             min-h-[500px]
             backdrop-blur-xl
@@ -422,7 +433,7 @@ relative overflow-hidden
               <div className="
               bg-white/[0.03]
               border border-white/5
-              rounded-[32px]
+              rounded-[24px]
               p-8
               backdrop-blur-xl
 
