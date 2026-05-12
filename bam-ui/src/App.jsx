@@ -1,4 +1,45 @@
+import { useEffect, useState } from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  Tooltip,
+  ResponsiveContainer,
+  AreaChart,
+  Area
+} from "recharts"
+
 function App() {
+
+
+  const [data, setData] = useState({
+
+  highest_streak: 0,
+
+  consistency: 0,
+
+  peak_time: "Loading...",
+
+  timeline: []
+
+})
+
+
+
+  useEffect(() => {
+
+  fetch("http://127.0.0.1:5000/github/gaearon")
+    .then((res) => res.json())
+    .then((data) => {
+  console.log("DATA FROM BACKEND:", data);
+
+  setData(data);
+})
+.catch((error) => {
+  console.log("FETCH ERROR:", error);
+});
+
+}, []);
 
   return (
 
@@ -273,7 +314,7 @@ relative overflow-hidden
               tracking-[-0.05em]
               mt-4
               ">
-                12
+                {data.highest_streak}
               </h2>
 
             </div>
@@ -316,7 +357,7 @@ relative overflow-hidden
               tracking-[-0.05em]
               mt-4
               ">
-                53%
+                {data.consistency}%
               </h2>
 
             </div>
@@ -361,7 +402,7 @@ max-w-[220px]
               tracking-[-0.05em]
               mt-5
               ">
-                Afternoon
+                 {data.peak_time}
               </h2>
 
             </div>
@@ -387,7 +428,7 @@ max-w-[220px]
             border border-white/5
             rounded-[24px]
             p-9
-            min-h-[500px]
+            min-h-[620px]
             backdrop-blur-xl
 
 
@@ -403,22 +444,94 @@ relative overflow-hidden
             ">
 
               <h3 className="
-              text-[42px]
-              font-black
-              tracking-[-0.05em]
-              ">
-                Activity Timeline
-              </h3>
+text-[42px]
+font-black
+tracking-[-0.05em]
+">
+  Activity Timeline
+</h3>
 
-              <p className="
-              text-[#8b949e]
-              mt-3
-              text-[16px]
-              ">
-                Last 90 days
-              </p>
+<p className="
+text-[#8b949e]
+mt-3
+text-[16px]
+">
+  Last 90 days
+</p>
 
-              <div className="mt-16 h-[240px] rounded-2xl bg-gradient-to-b from-[#13203a] to-[#0b1220] border border-white/5"></div>
+<div className="h-[420px] mt-10">
+
+  <ResponsiveContainer width="100%" height="100%">
+
+  <AreaChart data={data.timeline}>
+
+    <defs>
+
+      <linearGradient id="colorActivity" x1="0" y1="0" x2="0" y2="1">
+
+        <stop
+          offset="0%"
+          stopColor="#3b82f6"
+          stopOpacity={0.45}
+        />
+
+        <stop
+          offset="100%"
+          stopColor="#3b82f6"
+          stopOpacity={0}
+        />
+
+      </linearGradient>
+
+    </defs>
+
+    <XAxis
+      dataKey="date"
+      stroke="#334155"
+      tick={{ fill: "#475569", fontSize: 11 }}
+      tickLine={false}
+      axisLine={false}
+      minTickGap={35}
+    />
+
+    <Tooltip
+      cursor={{
+        stroke: "#3b82f6",
+        strokeOpacity: 0.2
+      }}
+      contentStyle={{
+        background: "rgba(15,23,42,0.95)",
+        border: "1px solid rgba(255,255,255,0.06)",
+        borderRadius: "18px",
+        color: "white",
+        backdropFilter: "blur(14px)"
+      }}
+      labelStyle={{
+        color: "#94a3b8"
+      }}
+    />
+
+    <Area
+      type="monotone"
+      dataKey="count"
+      stroke="#60a5fa"
+      strokeWidth={3}
+      fill="url(#colorActivity)"
+    />
+
+    <Line
+      type="monotone"
+      dataKey="count"
+      stroke="#60a5fa"
+      strokeWidth={3}
+      dot={false}
+    />
+
+  </AreaChart>
+
+</ResponsiveContainer>
+
+</div>
 
             </div>
 
