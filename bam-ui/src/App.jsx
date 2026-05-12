@@ -200,17 +200,7 @@ tracking-[-0.07em] leading-[0.9]  text-white">
         Burst Coder
       </h2>
     </div>
-    <div className="
-absolute
-top-[240px]
-left-[420px]
-w-[180px]
-h-[180px]
-bg-[#3b82f6]
-opacity-[0.18]
-blur-[120px]
-rounded-full
-"></div>
+
   </div>
 
   <p className="text-[24px]
