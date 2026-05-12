@@ -220,6 +220,7 @@ leading-[1.8] text-[#94a3b8] mt-16 max-w-[900px] font-[350]">
           grid-cols-3 max-w-[980px]
           gap-6
           mt-20
+
           ">
 
             <div className="
@@ -235,6 +236,19 @@ transition-all duration-500
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
             text-[52px]
             shadow-[0_0_40px_rgba(0,0,0,0.45)]
+
+            
+
+before:absolute
+before:inset-0
+before:rounded-[inherit]
+before:p-[1px]
+before:bg-gradient-to-b
+before:from-white/[0.08]
+before:to-transparent
+before:pointer-events-none
+relative overflow-hidden
+
             ">
 
               <p className="text-[#8b949e] text-sm">
@@ -267,6 +281,17 @@ transition-all duration-500
             text-[52px]
             shadow-[0_0_40px_rgba(0,0,0,0.45)]
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
+
+
+            before:absolute
+before:inset-0
+before:rounded-[inherit]
+before:p-[1px]
+before:bg-gradient-to-b
+before:from-white/[0.08]
+before:to-transparent
+before:pointer-events-none
+relative overflow-hidden
             ">
 
               <p className="text-[#8b949e] text-sm">
@@ -298,6 +323,18 @@ hover:bg-[#131d2e]
 transition-all duration-500
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
             shadow-[0_0_40px_rgba(0,0,0,0.45)]
+
+
+
+            before:absolute
+before:inset-0
+before:rounded-[inherit]
+before:p-[1px]
+before:bg-gradient-to-b
+before:from-white/[0.08]
+before:to-transparent
+before:pointer-events-none
+relative overflow-hidden
             ">
 
               <p className="text-[#8b949e] text-sm">
@@ -340,6 +377,17 @@ max-w-[220px]
             p-9
             min-h-[500px]
             backdrop-blur-xl
+
+
+            before:absolute
+before:inset-0
+before:rounded-[inherit]
+before:p-[1px]
+before:bg-gradient-to-b
+before:from-white/[0.08]
+before:to-transparent
+before:pointer-events-none
+relative overflow-hidden
             ">
 
               <h3 className="
@@ -377,6 +425,17 @@ max-w-[220px]
               rounded-[32px]
               p-8
               backdrop-blur-xl
+
+
+              before:absolute
+before:inset-0
+before:rounded-[inherit]
+before:p-[1px]
+before:bg-gradient-to-b
+before:from-white/[0.08]
+before:to-transparent
+before:pointer-events-none
+relative overflow-hidden
               ">
 
                 <h3 className="
@@ -412,6 +471,17 @@ max-w-[220px]
               p-8
               backdrop-blur-xl
               text-sm leading-7
+
+
+              before:absolute
+before:inset-0
+before:rounded-[inherit]
+before:p-[1px]
+before:bg-gradient-to-b
+before:from-white/[0.08]
+before:to-transparent
+before:pointer-events-none
+relative overflow-hidden
               ">
 
                 <h3 className="
