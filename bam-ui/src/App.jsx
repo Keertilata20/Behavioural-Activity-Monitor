@@ -199,8 +199,19 @@ tracking-[-0.07em] leading-[0.9]  text-white">
       <h2 className="text-[50px] font-semibold tracking-[-0.06em] text-[#60a5fa]">
         Burst Coder
       </h2>
+          <div className="
+absolute
+top-[240px]
+left-[420px]
+w-[180px]
+h-[180px]
+bg-[#3b82f6]
+opacity-[0.18]
+blur-[120px]
+rounded-full
+"></div>
     </div>
-
+    
   </div>
 
   <p className="text-[24px]
