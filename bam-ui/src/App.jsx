@@ -74,11 +74,11 @@ function App() {
 
      <aside className="
      relative z-10
-w-[260px]
+w-[250px]
 min-h-screen
 bg-[#020617]/70 backdrop-blur-xl
 border-r border-white/5
-px-8
+px-6
 py-10
 sticky top-0
 shadow-[inset_-1px_0_0_rgba(255,255,255,0.04)]
