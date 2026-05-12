@@ -173,7 +173,7 @@ font-medium
       ">
 
        <div className="
-max-w-[1280px]
+max-w-[1180px]
 mx-auto
 px-16 py-10
 ">
@@ -187,14 +187,16 @@ px-16 py-10
   </p>
 
   <div className="mt-10">
-    <h1 className="text-[140px] leading-[0.9] font-black tracking-[-0.08em] text-white">
+    <h1 className="text-[128px]
+font-extrabold
+tracking-[-0.07em] leading-[0.9]  text-white">
       BAM
     </h1>
 
     <div className="flex items-center gap-5 mt-2">
       <div className="w-14 h-[2px] bg-[#3b82f6]"></div>
 
-      <h2 className="text-[50px] font-semibold tracking-[-0.05em] text-[#60a5fa]">
+      <h2 className="text-[50px] font-semibold tracking-[-0.06em] text-[#60a5fa]">
         Burst Coder
       </h2>
     </div>
@@ -227,8 +229,9 @@ leading-[1.8] text-[#94a3b8] mt-16 max-w-[900px] font-[350]">
             p-7
             backdrop-blur-xl
             hover:border-[#58a6ff]/20
+            hover:-translate-y-1
 hover:bg-[#131d2e]
-transition-all duration-300
+transition-all duration-500
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
             text-[52px]
             shadow-[0_0_40px_rgba(0,0,0,0.45)]
@@ -239,8 +242,8 @@ transition-all duration-300
               </p>
 
               <h2 className="
-              
-              font-black
+              text-[42px]
+              font-bold
               tracking-[-0.05em]
               mt-4
               ">
@@ -254,12 +257,13 @@ transition-all duration-300
             <div className="
             bg-[#0f172a]/70
             border border-white/[0.06]
+            hover:-translate-y-1
             rounded-[28px]
             p-7
             backdrop-blur-xl
             hover:border-[#58a6ff]/20
 hover:bg-[#131d2e]
-transition-all duration-300
+transition-all duration-500
             text-[52px]
             shadow-[0_0_40px_rgba(0,0,0,0.45)]
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
@@ -270,8 +274,8 @@ transition-all duration-300
               </p>
 
               <h2 className="
-              text-[52px]
-              font-black
+              text-[42px]
+              font-bold
               tracking-[-0.05em]
               mt-4
               ">
@@ -285,12 +289,13 @@ transition-all duration-300
             <div className="
             bg-[#0f172a]/70
             border border-white/[0.06]
+            hover:-translate-y-1
             rounded-[28px]
             p-7
             backdrop-blur-xl
             hover:border-[#58a6ff]/20
 hover:bg-[#131d2e]
-transition-all duration-300
+transition-all duration-500
             bg-gradient-to-b from-white/[0.06] to-white/[0.015]
             shadow-[0_0_40px_rgba(0,0,0,0.45)]
             ">
@@ -300,8 +305,10 @@ transition-all duration-300
               </p>
 
               <h2 className="
-              text-[52px]
-              font-black
+              text-[36px]
+leading-tight
+max-w-[220px]
+              font-bold
               tracking-[-0.05em]
               mt-5
               ">
@@ -377,7 +384,7 @@ transition-all duration-300
                 font-black
                 tracking-[-0.05em]
                 ">
-                  🧠 AI Insight
+                   AI Insight
                 </h3>
 
                 <p className="
@@ -408,11 +415,12 @@ transition-all duration-300
               ">
 
                 <h3 className="
-                text-[38px]
-                font-black
+                text-[32px]
+font-black
+leading-tight
                 tracking-[-0.05em]
                 ">
-                  🚨 Diagnostics
+                   Diagnostics
                 </h3>
 
                 <div className="space-y-4 mt-7">
