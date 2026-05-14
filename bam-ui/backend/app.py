@@ -22,9 +22,15 @@ def github_data(username):
     print("STATUS:", response.status_code)
 
     if response.status_code != 200:
-        return jsonify({"error": "User not found"})
+        return jsonify({
+        "error": "GitHub user not found"
+    }), 404
 
     events = response.json()
+    if not events:
+        return jsonify({
+        "error": "GitHub user not found"
+    }), 404
     
     analysis = analyze_events(events)
     

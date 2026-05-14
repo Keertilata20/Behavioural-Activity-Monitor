@@ -12,6 +12,15 @@ import {
 function App() {
 
 
+  useEffect(() => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}, []);
+
   const [data, setData] = useState({
 
   highest_streak: 0,
@@ -25,9 +34,21 @@ function App() {
 });
 
 
-const [username, setUsername] = useState("torvalds");
+const [username, setUsername] = useState("");
+
+const [loading, setLoading] = useState(false);
+
+const [error, setError] = useState("");
+
+
+
+
 
 const fetchData = () => {
+
+  setLoading(true);
+
+  setError("");
 
   fetch(`http://127.0.0.1:5000/github/${username}`)
 
@@ -35,9 +56,27 @@ const fetchData = () => {
 
     .then((data) => {
 
-      console.log(data);
+      console.log(data)
+
+      if (data.error || data.message) {
+
+        setError("GitHub user not found");
+        setData({
+        highest_streak: 0,
+        consistency: 0,
+        peak_time: "No Data",
+        timeline: [],
+        insight: ""
+    });
+
+        setLoading(false);
+
+        return;
+      }
 
       setData(data);
+
+      setLoading(false);
 
     })
 
@@ -45,17 +84,13 @@ const fetchData = () => {
 
       console.log(error);
 
+      setError("Failed to analyze GitHub profile");
+
+      setLoading(false);
+
     });
 
 };
-
-
-
-useEffect(() => {
-
-  fetchData();
-
-}, []);
 
   return (
 
@@ -315,8 +350,25 @@ leading-[1.8] text-[#94a3b8] mt-16 max-w-[900px] font-[350]">
     Analyze
   </button>
 
+
+
 </div>
 
+{loading && (
+
+  <p className="text-blue-300 mt-4">
+    Analyzing behavioral patterns...
+  </p>
+
+)}
+
+{error && (
+
+  <p className="text-red-400 mt-4 text-sm">
+    {error}
+  </p>
+
+)}
 
           {/* METRICS */}
 
@@ -564,15 +616,15 @@ text-[16px]
     />
 
     <Area
-      type="monotone"
-      dataKey="cmmits"
+      type="natural"
+      dataKey="commits"
       stroke="#60a5fa"
       strokeWidth={3}
       fill="url(#colorActivity)"
     />
 
     <Line
-      type="monotone"
+      type="natural"
       dataKey="commits"
       stroke="#60a5fa"
       strokeWidth={3}
@@ -630,8 +682,7 @@ relative overflow-hidden
                 mt-6
                 ">
 
-                  Strong afternoon productivity patterns detected.
-                  High-intensity burst coding behavior observed.
+                  {data.insight}
 
                 </p>
 
@@ -672,36 +723,21 @@ leading-tight
 
                 <div className="space-y-4 mt-7">
 
-                  <div className="
-                  bg-red-500/10
-text-red-300
-border border-red-500/10
-                  rounded-2xl
-                  px-5 py-5
                   
-                  text-[15px]
-                  leading-7
-                  ">
+                  {data.diagnostics?.map((item, index) => (
 
-                    Significant drop detected on 2026-04-28
+    <div
+      key={index}
+      className="rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-zinc-300 backdrop-blur-xl"
+    >
 
-                  </div>
+      {item}
 
+    </div>
 
-                  <div className="
-                  bg-emerald-500/10
-text-emerald-300
-border border-emerald-500/10
-                  rounded-2xl
-                  px-5 py-5
+  ))}
+
                   
-                  text-[15px]
-                  leading-7
-                  ">
-
-                    Major productivity spike on 2026-03-05
-
-                  </div>
 
                 </div>
 

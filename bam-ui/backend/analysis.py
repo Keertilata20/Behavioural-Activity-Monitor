@@ -7,6 +7,7 @@ def analyze_events(events):
 
     hours = []
     dates = []
+    diagnostics = []
 
     for event in events:
 
@@ -21,7 +22,13 @@ def analyze_events(events):
             dates.append(dt.date())
 
     if not hours:
-        return {}
+
+     return {
+        "highest_streak": 0,
+        "consistency": 0,
+        "peak_time": "No Data",
+        "insight": "No public activity found"
+    }
 
     # -------------------------
     # PEAK TIME
@@ -38,6 +45,12 @@ def analyze_events(events):
     else:
         peak = "Night"
 
+
+    
+    diagnostics.append(
+    f"Peak productivity occurs during {peak.lower()} hours"
+)
+
     # -------------------------
     # CONSISTENCY
     # -------------------------
@@ -45,6 +58,20 @@ def analyze_events(events):
     unique_days = len(set(dates))
 
     consistency = round((unique_days / 90) * 100)
+    
+    if consistency < 15:
+
+     diagnostics.append(
+        "Irregular contribution consistency detected"
+    )
+
+    else:
+
+      diagnostics.append(
+        "Stable development rhythm observed"
+    )
+
+
 
     # -------------------------
     # LONGEST STREAK
@@ -70,6 +97,12 @@ def analyze_events(events):
             current_streak = 1
 
 
+    diagnostics.append(
+    f"Current coding streak reached {longest_streak} active days"
+)
+
+
+
 
         # -------------------------
     # TIMELINE DATA
@@ -89,6 +122,29 @@ def analyze_events(events):
             "count": count
         })
 
+
+
+
+    # -------------------------
+    # INSIGHTS
+    # -------------------------
+
+    if peak == "Morning":
+       insight = "Early-day development rhythm detected. Consistent morning coding behavior observed."
+
+    elif peak == "Afternoon":
+
+       insight = "Strong afternoon productivity patterns detected. High development momentum observed."
+
+    else:
+
+       insight = "Night-focused coding behavior detected. Late-hour productivity dominance observed."
+
+
+    
+
+
+
     # -------------------------
     # RETURN
     # -------------------------
@@ -99,8 +155,11 @@ def analyze_events(events):
 
     "consistency": consistency,
 
-    "peak_time": peak
+    "peak_time": peak,
 
+    "insight": insight,
+
+    "diagnostics": diagnostics
 }
 
 
