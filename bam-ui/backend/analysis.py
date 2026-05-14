@@ -2,6 +2,7 @@ from collections import Counter
 from datetime import datetime
 from collections import defaultdict
 
+
 def analyze_events(events):
 
     hours = []
@@ -98,8 +99,31 @@ def analyze_events(events):
 
     "consistency": consistency,
 
-    "peak_time": peak,
-
-    "timeline": timeline
+    "peak_time": peak
 
 }
+
+
+def generate_timeline(events):
+
+    daily_counts = defaultdict(int)
+
+    for event in events:
+
+        created_at = event.get("created_at")
+
+        if created_at:
+
+            day = created_at[:10]
+            daily_counts[day] += 1
+
+    timeline = []
+
+    for day, count in sorted(daily_counts.items()):
+
+        timeline.append({
+            "date": day,
+            "commits": count
+        })
+
+    return timeline

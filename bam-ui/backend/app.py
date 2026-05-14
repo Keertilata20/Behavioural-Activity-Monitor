@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 import requests
-from analysis import analyze_events
+from analysis import analyze_events, generate_timeline
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -25,11 +25,13 @@ def github_data(username):
         return jsonify({"error": "User not found"})
 
     events = response.json()
-
+    
     analysis = analyze_events(events)
-
-    print("ANALYSIS:", analysis)
-
+    
+    timeline = generate_timeline(events)
+    
+    analysis["timeline"] = timeline
+    
     return jsonify(analysis)
 
 if __name__ == "__main__":

@@ -22,22 +22,38 @@ function App() {
 
   timeline: []
 
-})
-
-
-
-  useEffect(() => {
-
-  fetch("http://127.0.0.1:5000/github/gaearon")
-    .then((res) => res.json())
-    .then((data) => {
-  console.log("DATA FROM BACKEND:", data);
-
-  setData(data);
-})
-.catch((error) => {
-  console.log("FETCH ERROR:", error);
 });
+
+
+const [username, setUsername] = useState("torvalds");
+
+const fetchData = () => {
+
+  fetch(`http://127.0.0.1:5000/github/${username}`)
+
+    .then((res) => res.json())
+
+    .then((data) => {
+
+      console.log(data);
+
+      setData(data);
+
+    })
+
+    .catch((error) => {
+
+      console.log(error);
+
+    });
+
+};
+
+
+
+useEffect(() => {
+
+  fetchData();
 
 }, []);
 
@@ -264,6 +280,42 @@ leading-[1.8] text-[#94a3b8] mt-16 max-w-[900px] font-[350]">
 
 </div>
 
+{/* Button */}
+
+<div className="flex items-center gap-4 mt-12">
+
+  <input
+    type="text"
+    value={username}
+    onChange={(e) => setUsername(e.target.value)}
+    placeholder="Enter GitHub username"
+    className="
+    bg-white/[0.05]
+    border border-white/10
+    rounded-2xl
+    px-5 py-4
+    text-white
+    outline-none
+    backdrop-blur-xl
+    w-[320px]
+    "
+  />
+
+  <button
+    onClick={fetchData}
+    className="
+    bg-[#3b82f6]
+    hover:bg-[#2563eb]
+    transition-all
+    px-6 py-4
+    rounded-2xl
+    font-semibold
+    "
+  >
+    Analyze
+  </button>
+
+</div>
 
 
           {/* METRICS */}
@@ -305,7 +357,7 @@ relative overflow-hidden
             ">
 
               <p className="text-[#8b949e] text-sm">
-                Highest Streak
+                Recent Activity Streak
               </p>
 
               <h2 className="
@@ -513,7 +565,7 @@ text-[16px]
 
     <Area
       type="monotone"
-      dataKey="count"
+      dataKey="cmmits"
       stroke="#60a5fa"
       strokeWidth={3}
       fill="url(#colorActivity)"
@@ -521,7 +573,7 @@ text-[16px]
 
     <Line
       type="monotone"
-      dataKey="count"
+      dataKey="commits"
       stroke="#60a5fa"
       strokeWidth={3}
       dot={false}
