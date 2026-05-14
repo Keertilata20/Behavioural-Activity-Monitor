@@ -1,6 +1,7 @@
 from collections import Counter
 from datetime import datetime
 from collections import defaultdict
+from datetime import timedelta
 
 
 def analyze_events(events):
@@ -12,6 +13,10 @@ def analyze_events(events):
     for event in events:
 
         created_at = event.get("created_at")
+        event_type = event.get("type")
+
+        if event_type != "PushEvent":
+            continue
 
         if created_at:
 
@@ -167,22 +172,45 @@ def generate_timeline(events):
 
     daily_counts = defaultdict(int)
 
+    # -------------------------
+    # COUNT PUSH EVENTS
+    # -------------------------
+
     for event in events:
+
+        event_type = event.get("type")
+
+        if event_type != "PushEvent":
+            continue
 
         created_at = event.get("created_at")
 
         if created_at:
 
             day = created_at[:10]
+
             daily_counts[day] += 1
+
+    # -------------------------
+    # CREATE FULL DATE RANGE
+    # -------------------------
+
+    today = datetime.utcnow().date()
 
     timeline = []
 
-    for day, count in sorted(daily_counts.items()):
+    for i in range(6, -1, -1):
+
+        current_day = today - timedelta(days=i)
+
+        current_day_str = str(current_day)
 
         timeline.append({
-            "date": day,
-            "commits": count
+
+            "date": current_day_str,
+
+            "commits": daily_counts[current_day_str]
+
         })
 
     return timeline

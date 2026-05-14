@@ -519,7 +519,7 @@ max-w-[220px]
 
           <section className="
           grid
-          grid-cols-[1.9fr_0.9fr]
+          grid-cols-[2fr_1fr]
           gap-8
           mt-24
           ">
@@ -545,11 +545,12 @@ before:from-white/[0.08]
 before:to-transparent
 before:pointer-events-none
 relative overflow-hidden
+
             ">
 
               <h3 className="
-text-[42px]
-font-black
+text-[40px]
+font-bold
 tracking-[-0.05em]
 ">
   Activity Timeline
@@ -558,32 +559,30 @@ tracking-[-0.05em]
 <p className="
 text-[#8b949e]
 mt-3
-text-[16px]
+text-[15px]
 ">
   Last 90 days
 </p>
 
-<div className="h-[420px] mt-10">
+<div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
+<div className="h-[350px] mt-10">
 
   <ResponsiveContainer width="100%" height="100%">
 
-  <AreaChart data={data.timeline}>
+  <AreaChart data={data.timeline}
+  margin={{
+  top: 10,
+  right: 20,
+  left: 0,
+  bottom: 20
+}}>
 
     <defs>
 
       <linearGradient id="colorActivity" x1="0" y1="0" x2="0" y2="1">
 
-        <stop
-          offset="0%"
-          stopColor="#3b82f6"
-          stopOpacity={0.45}
-        />
-
-        <stop
-          offset="100%"
-          stopColor="#3b82f6"
-          stopOpacity={0}
-        />
+        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.35}/>
+<stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
 
       </linearGradient>
 
@@ -592,44 +591,75 @@ text-[16px]
     <XAxis
       dataKey="date"
       stroke="#334155"
-      tick={{ fill: "#475569", fontSize: 11 }}
+      tick={{ fill: "rgba(255,255,255,0.45)", fontSize: 11 }}
       tickLine={false}
       axisLine={false}
       minTickGap={35}
+      tickFormatter={(value) => {
+  const date = new Date(value)
+
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric"
+  })
+}}
+tickMargin={12}
+axisLine={false}
+tickLine={false}
     />
 
     <Tooltip
       cursor={{
-        stroke: "#3b82f6",
-        strokeOpacity: 0.2
-      }}
+  stroke: "rgba(255,255,255,0.04)",
+  strokeWidth: 1
+}}
       contentStyle={{
-        background: "rgba(15,23,42,0.95)",
-        border: "1px solid rgba(255,255,255,0.06)",
-        borderRadius: "18px",
+        background: "rgba(15,23,42,0.85)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        borderRadius: "16px",
         color: "white",
-        backdropFilter: "blur(14px)"
+        backdropFilter: "blur(12px)"
       }}
-      labelStyle={{
-        color: "#94a3b8"
-      }}
+       formatter={(value) => [`${value} pushes`, "Activity"]}
+
+  labelFormatter={(label) => {
+  const date = new Date(label)
+
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric"
+  })
+}}
     />
 
     <Area
-      type="natural"
-      dataKey="commits"
-      stroke="#60a5fa"
-      strokeWidth={3}
-      fill="url(#colorActivity)"
-    />
+  type="monotone"
+  dataKey="commits"
+  stroke="#60a5fa"
+  fill="url(#colorActivity)"
+  strokeWidth={3}
+  animationDuration={1200}
 
-    <Line
-      type="natural"
-      dataKey="commits"
-      stroke="#60a5fa"
-      strokeWidth={3}
-      dot={false}
-    />
+  dot={{
+    r: 3,
+    strokeWidth: 1.5,
+    fill: "#60a5fa",
+    stroke: "#dbeafe"
+  }}
+
+  activeDot={{
+    r: 8,
+    fill: "#93c5fd",
+    stroke: "#ffffff",
+    strokeWidth: 2,
+    filter: "drop-shadow(0 0 8px #60a5fa)"
+  }}
+
+
+  
+/>
+
+   
 
   </AreaChart>
 
@@ -667,9 +697,13 @@ before:pointer-events-none
 relative overflow-hidden
               ">
 
+                <div className="mb-4 inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">
+  Behavioral Analysis
+</div>
+
                 <h3 className="
-                text-[38px]
-                font-black
+                text-[30px]
+                font-bold
                 tracking-[-0.05em]
                 ">
                    AI Insight
@@ -710,25 +744,34 @@ before:from-white/[0.08]
 before:to-transparent
 before:pointer-events-none
 relative overflow-hidden
+leading-relaxed
               ">
 
                 <h3 className="
-                text-[32px]
-font-black
+                text-[28px]
+font-bold
 leading-tight
                 tracking-[-0.05em]
                 ">
                    Diagnostics
                 </h3>
 
-                <div className="space-y-4 mt-7">
+                <div className="space-y-5 mt-7">
 
                   
                   {data.diagnostics?.map((item, index) => (
 
     <div
-      key={index}
-      className="rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-zinc-300 backdrop-blur-xl"
+      key={index} 
+     className={`rounded-3xl border p-5 text-sm leading-relaxed backdrop-blur-xl
+
+${
+  index === 0
+    ? "border-blue-400/20 bg-blue-400/10 text-blue-100"
+    : index === 1
+    ? "border-amber-400/20 bg-amber-400/10 text-amber-100"
+    : "border-emerald-400/20 bg-emerald-400/10 text-emerald-100"
+}`}
     >
 
       {item}
