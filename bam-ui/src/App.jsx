@@ -335,7 +335,7 @@ px-16 py-10
 
           {/* HERO */}
 
-<div className="grid grid-cols-[1.1fr_0.9fr] gap-16 items-center">
+<div className="grid grid-cols-[1fr_520px] gap-16 items-start">
 
   {/* LEFT SIDE */}
 
@@ -522,149 +522,120 @@ px-16 py-10
 
   </div>
 
-  {/* RIGHT SIDE */}
+{/* RIGHT SIDE */}
 
-  <div className="
+<div
+  className="
   relative
-  h-[480px]
+  h-[450px]
+  w-[350px]
   rounded-[40px]
   border border-white/10
   bg-white/[0.04]
   backdrop-blur-2xl
+  shadow-[0_0_80px_rgba(59,130,246,0.10)]
   overflow-hidden
-  shadow-[0_0_80px_rgba(59,130,246,0.14)]
-  ">
+  p-10
+  flex
+  flex-col
+  
+  justify-between
+"
+>
 
-    {/* Glow */}
+  {/* ambient glow */}
 
-    <div className="
-    absolute
-    top-10
-    left-10
-    w-52
-    h-52
-    rounded-full
-    bg-cyan-400/20
-    blur-[120px]
-    "></div>
+  <div className="
+  absolute
+  top-0
+  right-0
+  w-[300px]
+  h-[300px]
+  bg-cyan-400/10
+  blur-[120px]
+  rounded-full
+  "></div>
 
-    {/* Top Card */}
 
-    <div className="
-    absolute
-    top-8
-    left-8
-    right-8
-    p-6
-    rounded-3xl
-    bg-black/20
-    border border-white/10
-    backdrop-blur-xl
+ 
+
+  {/* content */}
+
+  <div className="relative z-10">
+
+    <p className="
+    text-slate-500
+    text-[10px]
+    tracking-[0.3em]
+    uppercase
     ">
+      Behavioural Core
+    </p>
 
-      <p className="text-slate-400 text-sm">
-        Current Behavioral Pattern
-      </p>
-
-      <h3 className="
-      text-4xl
-      font-bold
-      mt-4
-      text-cyan-300
-      tracking-[-0.04em]
-      ">
-        Burst Productivity
-      </h3>
-
-    </div>
-
-    {/* Center Orb */}
-
-    <div className="
-    absolute
-    inset-0
-    flex
-    items-center
-    justify-center
+    <h2 className="
+    text-[40px]
+    leading-[0.9]
+    tracking-[-0.08em]
+    font-bold
+    text-cyan-300
+    mt-8
     ">
+      Burst
+      <br />
+      Productivity
+    </h2>
 
-      <div className="relative">
-
-        <div className="
-        w-40
-        h-40
-        rounded-full
-        border border-cyan-400/20
-        animate-pulse
-        "></div>
-
-        <div className="
-        absolute
-        inset-8
-        rounded-full
-        bg-cyan-400/20
-        blur-3xl
-        "></div>
-
-        <div className="
-        absolute
-        inset-[44px]
-        rounded-full
-        border border-cyan-300/40
-        "></div>
-
-      </div>
-
-    </div>
-
-    {/* Bottom Stats */}
-
-    <div className="
-    absolute
-    bottom-8
-    left-8
-    right-8
-    grid grid-cols-2
-    gap-4
+    <p className="
+    mt-8
+    text-slate-400
+    text-[12px]
+    leading-8
+    max-w-[400px]
+    leading-9
     ">
-
-      <div className="
-      rounded-3xl
-      border border-white/10
-      bg-white/[0.04]
-      p-6
-      ">
-
-        <p className="text-slate-500 text-sm">
-          Active Days
-        </p>
-
-        <h3 className="text-4xl font-bold mt-3 text-white">
-          {data.active_days}
-        </h3>
-
-      </div>
-
-      <div className="
-      rounded-3xl
-      border border-white/10
-      bg-white/[0.04]
-      p-6
-      ">
-
-        <p className="text-slate-500 text-sm">
-          Consistency
-        </p>
-
-        <h3 className="text-4xl font-bold mt-3 text-cyan-300">
-          {data.consistency}%
-        </h3>
-
-      </div>
-
-    </div>
+      High-intensity contribution bursts with irregular rhythm patterns detected across coding sessions.
+    </p>
+    <br />
 
   </div>
+{/* Orbital Rings */}
+
+<div className="
+absolute
+bottom-[-180px]
+right-[-140px]
+w-[420px]
+h-[420px]
+rounded-full
+border
+border-cyan-400/10
+"></div>
+
+<div className="
+absolute
+bottom-[-120px]
+right-[-80px]
+w-[300px]
+h-[300px]
+rounded-full
+border
+border-cyan-400/10
+"></div>
+
+<div className="
+absolute
+bottom-[120px]
+right-[120px]
+w-3
+h-3
+rounded-full
+bg-cyan-300
+shadow-[0_0_20px_rgba(34,211,238,0.8)]
+"></div>
+
+  
+
+</div>
 
 </div>
 
