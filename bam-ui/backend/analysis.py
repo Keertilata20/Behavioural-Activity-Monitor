@@ -214,3 +214,86 @@ def generate_timeline(events):
         })
 
     return timeline
+
+
+
+
+
+def analyze_contributions(days):
+
+    counts = [day["count"] for day in days]
+
+    # -------------------------
+    # CONSISTENCY
+    # -------------------------
+
+    active_days = len([c for c in counts if c > 0])
+
+    consistency = round((active_days / len(days)) * 100)
+
+    # -------------------------
+    # STREAK
+    # -------------------------
+
+    highest_streak = 0
+    current_streak = 0
+
+    for count in counts:
+
+        if count > 0:
+
+            current_streak += 1
+            highest_streak = max(highest_streak, current_streak)
+
+        else:
+
+            current_streak = 0
+
+    # -------------------------
+    # PEAK TIME
+    # -------------------------
+
+    peak_time = "Night"
+
+    # -------------------------
+    # INSIGHT
+    # -------------------------
+
+    if consistency > 70:
+
+        insight = "Highly disciplined development rhythm detected."
+
+    elif consistency > 40:
+
+        insight = "Moderately consistent coding behavior observed."
+
+    else:
+
+        insight = "Burst-oriented coding behavior detected."
+
+    # -------------------------
+    # DIAGNOSTICS
+    # -------------------------
+
+    diagnostics = [
+
+        f"{active_days} active coding days detected",
+
+        f"Highest streak reached {highest_streak} days",
+
+        f"{consistency}% contribution consistency observed"
+
+    ]
+
+    return {
+
+        "highest_streak": highest_streak,
+
+        "consistency": consistency,
+
+        "peak_time": peak_time,
+
+        "insight": insight,
+
+        "diagnostics": diagnostics
+    }

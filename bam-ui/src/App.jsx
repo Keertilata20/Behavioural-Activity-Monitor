@@ -608,7 +608,7 @@ text-[15px]
     </defs>
 
     <XAxis
-      dataKey="count"
+      dataKey="date"
       stroke="#334155"
       tick={{ fill: "rgba(255,255,255,0.45)", fontSize: 11 }}
       tickLine={false}
@@ -653,7 +653,7 @@ tickLine={false}
 
     <Area
   type="monotone"
-  dataKey="contributionCount"
+  dataKey="count"
   stroke="#60a5fa"
   fill="url(#colorActivity)"
   strokeWidth={3}

@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 import requests
 from analysis import analyze_events, generate_timeline
 from flask_cors import CORS
+from analysis import analyze_contributions
 
 from dotenv import load_dotenv
 import os
@@ -68,6 +69,11 @@ def github_data(username):
     data = response.json()
     
     days = []
+    if data["data"]["user"] is None:
+
+          return jsonify({
+        "error": "GitHub user not found"
+    }), 404
 
     weeks = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
 
@@ -79,10 +85,13 @@ def github_data(username):
             "date": day["date"],
             "count": day["contributionCount"]
         })
+    analysis = analyze_contributions(days)
 
     print(data)
 
-    return jsonify(days)
+    analysis["timeline"] = days
+
+    return jsonify(analysis)
 
 if __name__ == "__main__":
     app.run(debug=True)
