@@ -3,6 +3,13 @@ import requests
 from analysis import analyze_events, generate_timeline
 from flask_cors import CORS
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+TOKEN = os.getenv("GITHUB_TOKEN")
+
 app = Flask(__name__)
 CORS(app)
 
@@ -11,34 +18,71 @@ def github_data(username):
 
     print("USERNAME:", username)
 
-    url = f"https://api.github.com/users/{username}/events"
+    url = "https://api.github.com/graphql"
 
     headers = {
-    "Accept": "application/vnd.github+json",
-    "User-Agent": "BAM-App"
-}
-    response = requests.get(url, headers=headers)
-    
+        "Authorization": f"Bearer {TOKEN}"
+    }
+
+    query = """
+    query($username: String!) {
+      user(login: $username) {
+        contributionsCollection {
+          contributionCalendar {
+            weeks {
+              contributionDays {
+                date
+                contributionCount
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+
+    variables = {
+        "username": username
+    }
+
+    response = requests.post(
+
+        url,
+
+        json={
+            "query": query,
+            "variables": variables
+        },
+
+        headers=headers
+    )
+
     print("STATUS:", response.status_code)
 
     if response.status_code != 200:
-        return jsonify({
-        "error": "GitHub user not found"
-    }), 404
 
-    events = response.json()
-    if not events:
         return jsonify({
-        "error": "GitHub user not found"
-    }), 404
+            "error": "GitHub user not found"
+        }), 404
+
+    data = response.json()
     
-    analysis = analyze_events(events)
-    
-    timeline = generate_timeline(events)
-    
-    analysis["timeline"] = timeline
-    
-    return jsonify(analysis)
+    days = []
+
+    weeks = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+
+    for week in weeks:
+
+        for day in week["contributionDays"]:
+
+           days.append({
+            "date": day["date"],
+            "count": day["contributionCount"]
+        })
+
+    print(data)
+
+    return jsonify(days)
 
 if __name__ == "__main__":
     app.run(debug=True)

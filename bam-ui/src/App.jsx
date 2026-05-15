@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Heatmap from "./components/Heatmap";
 import {
   LineChart,
   Line,
@@ -74,7 +75,25 @@ const fetchData = () => {
         return;
       }
 
-      setData(data);
+      console.log(data)
+
+
+
+      setData({
+
+  highest_streak: 0,
+
+  consistency: 0,
+
+  peak_time: "Night",
+
+  insight: "GitHub contribution calendar successfully analyzed.",
+
+  diagnostics: [],
+
+  timeline: data
+
+});
 
       setLoading(false);
 
@@ -569,7 +588,7 @@ text-[15px]
 
   <ResponsiveContainer width="100%" height="100%">
 
-  <AreaChart data={data.timeline}
+  <AreaChart data={data.timeline.slice(-90)}
   margin={{
   top: 10,
   right: 20,
@@ -589,7 +608,7 @@ text-[15px]
     </defs>
 
     <XAxis
-      dataKey="date"
+      dataKey="count"
       stroke="#334155"
       tick={{ fill: "rgba(255,255,255,0.45)", fontSize: 11 }}
       tickLine={false}
@@ -634,11 +653,13 @@ tickLine={false}
 
     <Area
   type="monotone"
-  dataKey="commits"
+  dataKey="contributionCount"
   stroke="#60a5fa"
   fill="url(#colorActivity)"
   strokeWidth={3}
   animationDuration={1200}
+  connectNulls
+  isAnimationActive={false}
 
   dot={{
     r: 3,
@@ -664,6 +685,15 @@ tickLine={false}
   </AreaChart>
 
 </ResponsiveContainer>
+
+</div>
+<div className="mt-8 p-6 rounded-[32px] bg-white/10 border border-white/10">
+
+  <h2 className="text-4xl font-bold mb-6">
+    Activity Heatmap
+  </h2>
+
+  <Heatmap timeline={data.timeline.slice(-90) || []} />
 
 </div>
 

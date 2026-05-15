@@ -199,7 +199,7 @@ def generate_timeline(events):
 
     timeline = []
 
-    for i in range(6, -1, -1):
+    for i in range(29, -1, -1):
 
         current_day = today - timedelta(days=i)
 
