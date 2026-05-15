@@ -295,5 +295,7 @@ def analyze_contributions(days):
 
         "insight": insight,
 
-        "diagnostics": diagnostics
+        "diagnostics": diagnostics,
+
+        "active_days": active_days,
     }

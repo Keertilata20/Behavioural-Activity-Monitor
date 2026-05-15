@@ -41,6 +41,8 @@ const [loading, setLoading] = useState(false);
 
 const [error, setError] = useState("");
 
+const [activeSection, setActiveSection] = useState("Dashboard")
+
 
 
 
@@ -62,13 +64,7 @@ const fetchData = () => {
       if (data.error || data.message) {
 
         setError("GitHub user not found");
-        setData({
-        highest_streak: 0,
-        consistency: 0,
-        peak_time: "No Data",
-        timeline: [],
-        insight: ""
-    });
+        setData(data);
 
         setLoading(false);
 
@@ -79,21 +75,7 @@ const fetchData = () => {
 
 
 
-      setData({
-
-  highest_streak: 0,
-
-  consistency: 0,
-
-  peak_time: "Night",
-
-  insight: "GitHub contribution calendar successfully analyzed.",
-
-  diagnostics: [],
-
-  timeline: data
-
-});
+      setData(data);
 
       setLoading(false);
 
@@ -113,8 +95,13 @@ const fetchData = () => {
 
   return (
 
-    <div className="min-h-screen bg-[#030712] text-[#f8fafc] flex overflow-hidden relative">
+
+    
+    <div className="min-h-screen bg-[#020617] text-[#f8fafc] flex overflow-hidden relative">
  {/* CINEMATIC BACKGROUND */}
+<div className="absolute top-32 left-[35%] w-[500px] h-[500px] bg-blue-500/20 blur-[160px] rounded-full pointer-events-none"></div>
+
+<div className="absolute top-[450px] right-10 w-[350px] h-[350px] bg-cyan-400/10 blur-[140px] rounded-full pointer-events-none"></div>
 
 <div className="absolute inset-0 overflow-hidden">
 
@@ -183,94 +170,135 @@ const fetchData = () => {
 
 {/* SIDEBAR */}
 
-     <aside className="
-     relative z-10
-w-[250px]
-min-h-screen
-bg-[#020617]/70 backdrop-blur-xl
-border-r border-white/5
-px-6
-py-10
-sticky top-0
-shadow-[inset_-1px_0_0_rgba(255,255,255,0.04)]
-">
+<aside
+  className="
+  relative
+  w-[260px]
+  min-h-screen
+  border-r
+  border-white/10
+  bg-black/20
+  backdrop-blur-xl
+  sticky
+  top-0
+  px-8
+  py-10
+  overflow-hidden
+"
+>
 
-        <div>
+  {/* Ambient Glow */}
 
-          <h1 className="text-5xl font-black tracking-[-0.08em]">
-            BAM
-          </h1>
+  <div
+    className="
+    absolute
+    top-0
+    left-0
+    w-full
+    h-40
+    bg-cyan-400/5
+    blur-3xl
+    pointer-events-none
+  "
+  ></div>
 
-          <p className="text-[#94a3b8] text-sm mt-3 leading-6">
-  Behaviour Intelligence System
-</p>
+  {/* Logo Section */}
 
-          <div className="mt-16 space-y-8 mt-24">
+  <div className="relative z-10">
 
-            <p className="
-group
-flex items-center
-gap-3
-text-[#94a3b8]
-hover:text-white
-transition-all
-duration-300
-cursor-pointer
-text-[22px]
-font-medium
-">
-              Navigation
-            </p>
+    <h1 className="text-6xl font-black tracking-[-0.08em] text-white">
+      BAM
+    </h1>
 
-            <div className="space-y-5 text-[16px]">
+    <p className="text-slate-500 text-sm mt-3 leading-6 max-w-[180px]">
+      Behaviour Intelligence System
+    </p>
 
-              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[18px] font-medium tracking-[-0.02em]">
+  </div>
 
-  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+  {/* Navigation */}
 
-  Dashboard
+  <div className="relative z-10 mt-24">
 
-</div>
+    <p className="text-xs tracking-[0.35em] text-slate-500 uppercase mb-8">
+      Intelligence
+    </p>
 
-              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[18px] font-medium tracking-[-0.02em]">
+    <div className="space-y-3">
 
-  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+      {/* ACTIVE ITEM */}
 
-  Timeline
+     
 
-</div>
+        {["Dashboard", "Timeline", "Heatmap", "Insights", "Diagnostics"].map((item) => (
 
-              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[18px] font-medium tracking-[-0.02em]">
+  <div
+    key={item}
 
-  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+    onClick={() => setActiveSection(item)}
 
-  Heatmap
+    className={`
+      group
+      flex
+      items-center
+      gap-4
+      px-5
+      py-4
+      rounded-2xl
+      transition-all
+      duration-300
+      cursor-pointer
 
-</div>
+      ${
+        activeSection === item
+          ? `
+            bg-cyan-400/10
+            border
+            border-cyan-400/20
+            text-cyan-300
+            shadow-[0_0_20px_rgba(34,211,238,0.12)]
+          `
+          : `
+            text-slate-400
+            hover:text-cyan-300
+            hover:bg-white/5
+          `
+      }
+    `}
+  >
 
-              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[18px] font-medium tracking-[-0.02em]">
+    <div
+      className={`
+        w-2
+        h-2
+        rounded-full
+        bg-cyan-300
+        transition-all
+        duration-300
 
-  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+        ${
+          activeSection === item
+            ? "opacity-100"
+            : "opacity-0 group-hover:opacity-100"
+        }
+      `}
+    ></div>
 
-  Insights
+    <span className="text-[17px] font-medium tracking-[-0.02em]">
+      {item}
+    </span>
 
-</div>
+  </div>
 
-              <div className="group flex items-center gap-3 text-[#94a3b8] hover:text-white transition-all duration-300 cursor-pointer text-[18px] font-medium tracking-[-0.02em]">
+))}
 
-  <div className="w-1.5 h-1.5 rounded-full bg-[#58a6ff] opacity-0 group-hover:opacity-100 transition-all"></div>
+    
 
-  Diagnostics
+    </div>
 
-</div>
+  </div>
 
-            </div>
-
-          </div>
-
-        </div>
-
-      </aside>
+</aside>
 
 
 
@@ -310,6 +338,7 @@ tracking-[-0.07em] leading-[0.9]  text-white">
       <h2 className="text-[50px] font-semibold tracking-[-0.06em] text-[#60a5fa]">
         Burst Coder
       </h2>
+      
           <div className="
 absolute
 top-[240px]
@@ -322,14 +351,27 @@ blur-[120px]
 rounded-full
 "></div>
     </div>
+    <div className="flex gap-4 mt-6 flex-wrap">
+
+  <div className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-300 text-sm">
+    ⚡ Peak Time: {data.peak_time}
+  </div>
+
+  <div className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-sm">
+    📈 Active Days: {data.active_days}
+  </div>
+
+  <div className="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-400/20 text-indigo-300 text-sm">
+    🧠 Rhythm: Burst Driven
+  </div>
+
+</div>
     
   </div>
 
   <p className="text-[24px]
 leading-[1.8] text-[#94a3b8] mt-16 max-w-[900px] font-[350]">
-    Analyze coding behavior, productivity rhythms,
-    contribution intensity, and development momentum
-    through GitHub activity intelligence.
+    Behavioral analytics engine for developer productivity patterns.
   </p>
 
 </div>
@@ -580,7 +622,7 @@ text-[#8b949e]
 mt-3
 text-[15px]
 ">
-  Last 90 days
+  Last 30 days
 </p>
 
 <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
@@ -588,7 +630,7 @@ text-[15px]
 
   <ResponsiveContainer width="100%" height="100%">
 
-  <AreaChart data={data.timeline.slice(-90)}
+  <AreaChart data={data.timeline.slice(-30)}
   margin={{
   top: 10,
   right: 20,
