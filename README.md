@@ -14,7 +14,7 @@ A futuristic behavioural intelligence dashboard that transforms GitHub contribut
 
 <br/>
 
-<img width="100%" src="./assets/bam-preview.png" />
+<img width="100%" src="./assets/preview.png" />
 
 </div>
 
@@ -113,19 +113,19 @@ Fully adaptive responsive system:
 
 ## Desktop System
 
-<img width="100%" src="./assets/dashboard-preview.png" />
+<img width="100%" src="./assets/dashboard.png" />
 
 ---
 
 ## Behavioural Timeline Engine
 
-<img width="100%" src="./assets/timeline-preview.png" />
+<img width="100%" src="./assets/timeline.png" />
 
 ---
 
 ## Contribution Heatmap
 
-<img width="100%" src="./assets/heatmap-preview.png" />
+<img width="100%" src="./assets/heatmap.png" />
 
 ---
 
