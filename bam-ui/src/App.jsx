@@ -937,13 +937,18 @@ before:pointer-events-none
                 Recent Activity Streak
               </p>
 
-              <h2 className="
-              text-[42px]
-              text-amber-400
-              font-bold
-              tracking-[-0.05em]
-              mt-4
-              ">
+              <h2
+  className="
+  text-[32px]
+  sm:text-[38px]
+  leading-tight
+  break-words
+  text-amber-300
+  font-bold
+  tracking-[-0.05em]
+  mt-5
+  "
+>
                 {data.highest_streak}
               </h2>
               <div className="
@@ -1001,13 +1006,18 @@ before:pointer-events-none
                 Consistency
               </p>
 
-              <h2 className="
-              text-[42px]
-              text-cyan-400
-              font-bold
-              tracking-[-0.05em]
-              mt-4
-              ">
+              <h2
+  className="
+  text-[32px]
+  sm:text-[38px]
+  leading-tight
+  break-words
+  text-cyan-300
+  font-bold
+  tracking-[-0.05em]
+  mt-5
+  "
+>
                 {data.consistency}%
               </h2>
               <div className="
@@ -1066,17 +1076,19 @@ before:pointer-events-none
                 Peak Time
               </p>
 
-              <h2 className="
-              text-[36px]
-leading-tight
-max-w-[220px]
-text-violet-400
-
-              font-bold
-              tracking-[-0.05em]
-              mt-5
-              ">
-                 {data.peak_time}
+              <h2
+  className="
+  text-[32px]
+  sm:text-[38px]
+  leading-tight
+  break-words
+  text-violet-300
+  font-bold
+  tracking-[-0.05em]
+  mt-5
+  "
+>
+                 {loading ? "Analyzing..." : data.peak_time}
               </h2>
               <div className="
 absolute
