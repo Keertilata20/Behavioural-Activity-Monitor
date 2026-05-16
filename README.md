@@ -1,166 +1,170 @@
-# 🧠 BAM — Behavioural Activity Monitor
+# BAM
+### Behavioural Activity Monitor
 
-> Development activity is more than contribution counts.  
-> It is rhythm, consistency, focus, momentum, and behavioral pattern.
+A futuristic GitHub behavioural intelligence dashboard that analyzes developer contribution rhythms, consistency patterns, productivity bursts, and coding timelines using GitHub GraphQL data.
 
-BAM (Behavioural Activity Monitor) is a behavioral intelligence system that analyzes GitHub commit activity to uncover how developers work over time.
-
-Instead of treating commits as isolated events, BAM interprets them as behavioral signals — identifying productivity rhythms, consistency trends, working-hour preferences, activity spikes, and development momentum patterns.
-
-
+![BAM Preview](./preview.png)
 
 ---
 
 ## ✨ Features
 
--  Analyze commit activity across multiple repositories
--  Detect peak productivity hours
--  Measure streaks and coding consistency
--  Identify unusual activity spikes and drops
--  Generate human-readable behavioral insights
--  Transform raw GitHub activity into behavioral intelligence
+- Behavioural developer profiling
+- Dynamic persona generation
+- Contribution heatmap visualization
+- Activity timeline analytics
+- Consistency scoring
+- Peak productivity detection
+- AI-style behavioural insights
+- Responsive futuristic UI
+- Mobile adaptive navigation
+- Smooth scroll progress system
 
 ---
 
-## 🧬 Core Concept
+## 🧠 Behavioural Personas
 
-Traditional GitHub analytics focus on **what** was done.
+BAM dynamically detects contribution behaviour patterns and generates adaptive personas such as:
 
-BAM focuses on:
-
-> **How a developer behaves while building software.**
-
-The system interprets commit history to uncover patterns such as:
-
-- Burst-heavy development cycles
-- Consistent long-term coding habits
-- High-focus working periods
-- Productivity fluctuations
-- Momentum retention over time
-
-
-### Example Insights
-
-```text
-⚡ Burst coding behavior detected during afternoon sessions
-
-📈 Strong productivity momentum with moderate consistency retention
-
-🚨 Significant drop in activity after prolonged high-intensity development
-```
-
+- Consistent Maintainer
+- Burst Coder
+- Adaptive Developer
+- Night Architect
+- Momentum Builder
 
 ---
 
-## ⚙️ System Workflow
+## ⚙️ Tech Stack
 
-```text
-GitHub API
-    ↓
-Commit Aggregation
-    ↓
-Behavioral Feature Extraction
-    ↓
-Pattern Analysis Engine
-    ↓
-Human-Readable Insights
-```
-
-### The system:
-1. Fetches commit activity using the GitHub API
-2. Aggregates repository-wide contribution data
-3. Extracts behavioral features:
-- activity frequency
-- commit timing
-- streaks
-- consistency
-- spikes & anomalies
-4. Applies behavioral analysis logic
-5. Generates interpretable insights and diagnostics
-
----
-
-## 📊 Behavioral Metrics
-
-BAM currently analyzes:
-
-- Commit frequency
-- Coding streaks
-- Productivity consistency
-- Peak activity windows
-- Contribution intensity
-- Behavioral anomalies
-- Momentum patterns
-
----
-
-## 🛠 Tech Stack
-
-#### Current Stack
-- Python
-- GitHub REST API
-- Datetime & aggregation analysis
-- Pattern detection logic
-
-#### Planned Stack
+### Frontend
 - React
+- Vite
 - Tailwind CSS
-- FastAPI
-- Interactive behavioral dashboard
+- Recharts
+- Framer Motion
+
+### Backend
+- Flask
+- GitHub GraphQL API
+- Python
+
+### Deployment
+- Vercel (Frontend)
+- Render (Backend)
 
 ---
 
-## 🌌 Vision
+## 🚀 Live Demo
 
-BAM is part of a broader idea:
+### Frontend
+[View BAM Dashboard](YOUR_VERCEL_LINK)
 
-> Building systems that do not merely collect activity data,
-but interpret human behavioral patterns through software interaction.
-
-The long-term direction includes:
-
-- AI-assisted developer profiling
-- Predictive productivity analysis
-- Adaptive behavioral intelligence systems
-- Advanced anomaly detection
-- Machine learning-based pattern classification
+### Backend API
+[Render Backend](YOUR_RENDER_LINK)
 
 ---
 
-## 🌱 Future Improvements
+## 📊 API Endpoint
 
-* Fully interactive React dashboard
-* GitHub OAuth authentication
-* ML-based behavioral classification
-* Long-term trend forecasting
-* Advanced visualization system
-* Multi-user behavioral comparison
-* AI-generated development insights
+```bash
+GET /analyze/<github_username>
+```
 
----
+Example:
 
-## ✨ Why this project?
-
-This project reflects interests in:
-
-* Behavioral intelligence
-* AI-driven systems
-* Pattern recognition
-* Human-centered analytics
-* Developer productivity research
-
-BAM explores the intersection between: 
-
-> **Software Engineering × Behavioral Analysis × AI**.
+```bash
+/analyze/torvalds
+```
 
 ---
 
-⭐ ***If you find the concept interesting, feel free to fork the project, open issues, or suggest improvements.***
+## 🔐 Environment Variables
+
+Create a `.env` file inside:
+
+```bash
+bam-ui/backend
+```
+
+Add:
+
+```env
+GITHUB_TOKEN=your_github_token
+```
 
 ---
 
-## 📜 License
+## 🖥️ Local Setup
 
-MIT License
+### Clone Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Behavioural-Activity-Monitor.git
+```
 
 ---
+
+### Frontend Setup
+
+```bash
+cd bam-ui
+npm install
+npm run dev
+```
+
+---
+
+### Backend Setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
+
+---
+
+## 🌌 Design Philosophy
+
+BAM was designed as a behavioural intelligence interface rather than a traditional analytics dashboard.
+
+The interface focuses on:
+- atmospheric depth
+- contribution psychology
+- futuristic system aesthetics
+- adaptive behavioural interpretation
+- cinematic developer analytics
+
+---
+
+## 📱 Responsive Design
+
+BAM includes:
+- responsive sidebar system
+- mobile hamburger navigation
+- adaptive layouts
+- animated scroll indicators
+- fluid component scaling
+
+---
+
+## 🧪 Future Improvements
+
+- AI-generated productivity reports
+- Weekly behavioural summaries
+- Contribution forecasting
+- Team behavioural analytics
+- GitHub repository intelligence
+- Exportable insight reports
+
+---
+
+## 👤 Author
+
+Keerti Choudhury
+
+---
+
+## ⭐ Support
+
+If you enjoyed BAM, consider starring the repository.
