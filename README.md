@@ -12,7 +12,7 @@
 <br/>
 <br/>
 
-> *Intelligence beyond statistics.*
+> ***Intelligence beyond statistics.***
 
 <br/>
 
@@ -121,13 +121,17 @@ Fully adaptive responsive system:
 
 # ✦ Interface Preview
 
-## Desktop System
+## ✦ Core Intelligence Interface
+#### Primary behavioural analysis dashboard
 
-<img width="100%" src="./assets/dashboard.png" />
+<div align="center">
+<img width="92%" src="./assets/dashboard.png" />
+</div>
 
 ---
 
-## Behavioural Timeline Engine
+## ✦ Behavioural Timeline Engine
+#### Contribution rhythm and productivity frequency mapping
 
 <div align="center">
 <img height="50%" width="78%" src="./assets/timeline.png" />
@@ -135,8 +139,8 @@ Fully adaptive responsive system:
 
 ---
 
-## ✦ Contribution Heatmap
-#### Behavioural density visualization
+## ✦ Contribution Heatmap Matrix
+#### Visual behavioural density and activity distribution system
 
 <div align="center">
 <img height="50%" width="78%" src="./assets/heatmap.png" />
@@ -311,5 +315,7 @@ Designed and engineered as a behavioural intelligence system for developer analy
 ---
 
 <div align="center" width="80%">
+
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=yourrepo)
+
 </div>
