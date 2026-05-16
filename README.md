@@ -3,10 +3,13 @@
 # BAM
 ### Behavioural Activity Monitor
 
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&pause=1000&color=38BDF8&center=true&vCenter=true&width=700&lines=Behavioural+Developer+Intelligence;Adaptive+Contribution+Analytics;GitHub+Activity+Visualization+Engine" />
+
 <img src="https://img.shields.io/badge/Behavioural-Intelligence-00d9ff?style=for-the-badge&logo=react&logoColor=white" />
 <img src="https://img.shields.io/badge/AI--Inspired-Analytics-7c3aed?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Responsive-System-0ea5e9?style=for-the-badge" />
 
+<br/>
 <br/>
 
 > *Intelligence beyond statistics.*
@@ -15,8 +18,9 @@
 
 
 
-
+<div align="center" width="80%">
 A futuristic behavioural intelligence dashboard that transforms GitHub contribution activity into adaptive developer personas, contribution rhythm analytics, productivity diagnostics, and visual behavioural insights.
+</div>
 
 <br/>
 
