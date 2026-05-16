@@ -135,7 +135,7 @@ const fetchData = () => {
 
   setError("");
 
-  fetch(`http://127.0.0.1:5000/github/${username}`)
+  fetch(`https://bam-dashboard.onrender.com/analyze/${username}`)
 
     .then((res) => res.json())
 
