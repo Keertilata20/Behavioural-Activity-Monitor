@@ -8,13 +8,19 @@
 <img src="https://img.shields.io/badge/Responsive-System-0ea5e9?style=for-the-badge" />
 
 <br/>
+
+> *Intelligence beyond statistics.*
+
 <br/>
+
+
+
 
 A futuristic behavioural intelligence dashboard that transforms GitHub contribution activity into adaptive developer personas, contribution rhythm analytics, productivity diagnostics, and visual behavioural insights.
 
 <br/>
 
-<img width="100%" src="./assets/preview.png" />
+<img width="92%" src="./assets/preview.png" />
 
 </div>
 
@@ -119,13 +125,20 @@ Fully adaptive responsive system:
 
 ## Behavioural Timeline Engine
 
-<img width="100%" src="./assets/timeline.png" />
+<div align="center">
+<img width="78%" src="./assets/timeline.png" />
+</div>
 
 ---
 
-## Contribution Heatmap
+---
 
-<img width="100%" src="./assets/heatmap.png" />
+## ✦ Contribution Heatmap
+#### Behavioural density visualization
+
+<div align="center">
+<img width="78%" src="./assets/heatmap.png" />
+</div>
 
 ---
 
@@ -304,3 +317,6 @@ Designed and engineered as a behavioural intelligence system for developer analy
 Intelligence beyond statistics.
 
 </div>
+
+---
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=yourrepo)
