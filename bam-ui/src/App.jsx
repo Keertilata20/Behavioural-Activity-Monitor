@@ -1,38 +1,20 @@
 import { useEffect, useState } from "react";
 import Heatmap from "./components/Heatmap";
 import {
-  LineChart,
-  Line,
-  XAxis,
-  Tooltip,
   ResponsiveContainer,
   AreaChart,
-  Area
+  Area,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ReferenceLine
 } from "recharts"
 
 function App() {
 
 
-  useEffect(() => {
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}, []);
-
-  const [data, setData] = useState({
-
-  highest_streak: 0,
-
-  consistency: 0,
-
-  peak_time: "Analyzing...",
-
-  timeline: []
-
-});
 
 
 const [username, setUsername] = useState("");
@@ -46,6 +28,94 @@ const [activeSection, setActiveSection] = useState("Dashboard")
 const [hasAnalyzed, setHasAnalyzed] = useState(false)
 
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+ const [scrollProgress, setScrollProgress] = useState(0)
+
+ const [data, setData] = useState({
+  highest_streak: 0,
+  consistency: 0,
+  peak_time: "Loading...",
+  insight: "Awaiting behavioral analysis...",
+  diagnostics: [],
+  timeline: []
+})
+
+useEffect(() => {
+
+  const handleScroll = () => {
+
+    const scrollTop = window.scrollY
+
+    const docHeight =
+      document.documentElement.scrollHeight -
+      window.innerHeight
+
+    const progress =
+      (scrollTop / docHeight) * 100
+
+    setScrollProgress(progress)
+  }
+
+  window.addEventListener("scroll", handleScroll)
+
+  return () =>
+    window.removeEventListener("scroll", handleScroll)
+
+}, [])
+
+useEffect(() => {
+
+  const handleSectionScroll = () => {
+
+    const sections = [
+      "dashboard",
+      "timeline",
+      "heatmap",
+      "insights",
+      "diagnostics"
+    ]
+
+    let currentSection = "Dashboard"
+
+    sections.forEach((id) => {
+
+      const section =
+        document.getElementById(id)
+
+      if (!section) return
+
+      const rect =
+        section.getBoundingClientRect()
+
+      if (
+        rect.top <= 160 &&
+        rect.bottom >= 160
+      ) {
+
+        currentSection =
+          id.charAt(0).toUpperCase() +
+          id.slice(1)
+
+      }
+
+    })
+
+    setActiveSection(currentSection)
+
+  }
+
+  window.addEventListener(
+    "scroll",
+    handleSectionScroll
+  )
+
+  return () =>
+    window.removeEventListener(
+      "scroll",
+      handleSectionScroll
+    )
+
+}, [])
 
 
 const sectionMap = {
@@ -552,7 +622,29 @@ overflow-hidden
 </aside>
 
 
+ <div
+  className="
+  fixed
+  top-0
+  left-0
 
+  h-[4px]
+  z-[99999]
+
+  bg-gradient-to-r
+  from-cyan-400
+  via-blue-500
+  to-violet-500
+
+  shadow-[0_0_12px_rgba(34,211,238,0.7)]
+
+  transition-all
+  duration-150
+  "
+  style={{
+    width: `${scrollProgress}%`
+  }}
+></div>
 
 
 
@@ -564,6 +656,8 @@ overflow-hidden
       overflow-y-auto
       pt-[90px] lg:pt-0
       ">
+
+      
         
 
        <div id="dashboard"  className="
@@ -736,14 +830,28 @@ px-6 md:px-10 xl:px-20
         className="
         bg-[#3b82f6]
         hover:bg-[#2563eb]
-        hover:scale-[1.03]
+      
         active:scale-[0.98]
         transition-all
         px-8
         py-5
         rounded-2xl
-        font-semibold
-        shadow-[0_0_40px_rgba(59,130,246,0.35)]
+        
+
+        bg-gradient-to-br
+from-cyan-400
+to-blue-500
+
+text-white
+font-semibold
+
+shadow-[0_0_30px_rgba(34,211,238,0.25)]
+
+hover:scale-[1.03]
+hover:shadow-[0_0_40px_rgba(34,211,238,0.35)]
+
+transition-all
+duration-300
         "
       >
         Analyze
@@ -794,7 +902,8 @@ hover:bg-white/[0.05]
 hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
 
 transition-all duration-500
-  
+  lg:w-[420px]
+lg:mt-14
   justify-between
 "
 >
@@ -890,11 +999,11 @@ h-[380px] rounded-full border border-cyan-400/10"></div>
 
           {/* METRICS */}
 
-          <section id="timeline" className="
+          <section id="metrics" className="
           grid
           grid-cols-3 max-w-[1000px]
           gap-6
-          mt-20
+          mt-12
 
           ">
 
@@ -1118,19 +1227,364 @@ bg-current
           ">
 
 {/* LEFT COLUMN */}
-  <div className="flex flex-col gap-8">
-            {/* TIMELINE */}
+<div className="flex flex-col gap-8">
 
-            <div className="
-            bg-white/[0.03]
-            border border-white/5
-            rounded-[24px]
-            p-9
-            min-h-[620px]
-            backdrop-blur-xl
+  {/* TIMELINE */}
 
+  <div id="timeline"
+    className="
 
-            before:absolute
+    border-cyan-400/20
+from-cyan-500/10
+to-blue-500/5
+    relative
+    overflow-hidden
+
+    bg-white/[0.03]
+    border border-white/5
+
+    rounded-[24px]
+    p-9
+    min-h-[620px]
+
+    backdrop-blur-xl
+
+    before:absolute
+    before:inset-0
+    before:rounded-[inherit]
+    before:p-[1px]
+    before:bg-gradient-to-b
+    before:from-white/[0.08]
+    before:to-transparent
+    before:pointer-events-none
+
+    hover:-translate-y-2
+    hover:border-cyan-400/20
+    hover:bg-white/[0.05]
+    hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
+
+    transition-all
+    duration-500
+    "
+  >
+
+    {/* TITLE */}
+
+    <h3
+      className="
+      text-[40px]
+      font-bold
+      tracking-[-0.05em]
+      "
+    >
+      Activity Timeline
+    </h3>
+
+    <p
+      className="
+      text-[#8b949e]
+      mt-3
+      text-[15px]
+      "
+    >
+      Last 30 days
+    </p>
+
+    {/* LABEL */}
+
+    <div className="flex items-center gap-2 mt-7">
+
+      <div className="w-2 h-2 rounded-full bg-cyan-300"></div>
+
+      <p className="text-cyan-300 text-sm tracking-wide">
+        Contribution Frequency
+      </p>
+
+    </div>
+   <div className="
+absolute
+top-[-40px]
+right-[-40px]
+w-[140px]
+h-[140px]
+rounded-full
+blur-3xl
+opacity-20
+bg-current
+"></div>
+
+    {/* CHART AREA */}
+
+    <div
+      className="
+      h-[280px] md:h-[350px]
+      mt-7
+      relative
+      "
+    >
+
+      {/* Soft Background Glow */}
+
+      <div
+        className="
+        absolute
+        inset-0
+        bg-gradient-to-b
+        from-blue-500/[0.03]
+        to-transparent
+        pointer-events-none
+        bg-[#0b1120]/70
+        "
+      ></div>
+      <div className="
+absolute
+top-0
+left-0
+right-0
+h-24
+bg-gradient-to-b
+from-white/[0.03]
+to-transparent
+pointer-events-none
+"></div>
+
+      <ResponsiveContainer width="100%" height="100%">
+
+        <AreaChart
+          data={data.timeline.slice(-30)}
+          margin={{
+            top: 20,
+            right: 20,
+            left: -10,
+            bottom: 10
+          }}
+        >
+
+          {/* GRID */}
+
+          <CartesianGrid
+            stroke="rgba(255,255,255,0.03)"
+            vertical={false}
+          />
+
+          {/* DEFINITIONS */}
+
+          <defs>
+
+            <linearGradient
+              id="colorActivity"
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="1"
+            >
+
+              <stop
+                offset="5%"
+                stopColor="#3b82f6"
+                stopOpacity={0.35}
+              />
+
+              <stop
+                offset="95%"
+                stopColor="#3b82f6"
+                stopOpacity={0}
+              />
+
+            </linearGradient>
+
+            {/* Glow Filter */}
+
+            <filter id="glow">
+
+              <feGaussianBlur
+                stdDeviation="2"
+                result="coloredBlur"
+              />
+
+              <feMerge>
+
+                <feMergeNode in="coloredBlur" />
+
+                <feMergeNode in="SourceGraphic" />
+
+              </feMerge>
+
+            </filter>
+
+          </defs>
+
+          {/* X AXIS */}
+
+          <XAxis
+            dataKey="date"
+            stroke="#334155"
+            tick={{
+              fill: "rgba(255,255,255,0.45)",
+              fontSize: 11
+            }}
+            tickLine={false}
+            axisLine={false}
+            minTickGap={35}
+            tickMargin={12}
+            tickFormatter={(value) => {
+
+              const date = new Date(value)
+
+              return date.toLocaleDateString(
+                "en-US",
+                {
+                  month: "short",
+                  day: "numeric"
+                }
+              )
+
+            }}
+          />
+
+          {/* Y AXIS */}
+
+          <YAxis
+            stroke="#334155"
+            tick={{
+              fill: "rgba(255,255,255,0.25)",
+              fontSize: 10
+            }}
+            tickLine={false}
+            axisLine={false}
+            width={30}
+          />
+
+          {/* TOOLTIP */}
+
+          <Tooltip
+
+            cursor={{
+              stroke: "rgba(255,255,255,0.05)",
+              strokeWidth: 1
+            }}
+
+            contentStyle={{
+              background: "rgba(15,23,42,0.92)",
+              border:
+                "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "16px",
+              color: "white",
+              backdropFilter: "blur(12px)"
+            }}
+
+            formatter={(value) => [
+              `${value} pushes`,
+              "Activity"
+            ]}
+
+            labelFormatter={(label) => {
+
+              const date = new Date(label)
+
+              return date.toLocaleDateString(
+                "en-US",
+                {
+                  month: "long",
+                  day: "numeric"
+                }
+              )
+
+            }}
+          />
+
+          {/* BASELINE */}
+
+          <ReferenceLine
+            y={0}
+            stroke="rgba(255,255,255,0.08)"
+          />
+
+          {/* AREA */}
+
+          <Area
+
+            type="monotone"
+
+            dataKey="count"
+
+            stroke="#60a5fa"
+
+            fill="url(#colorActivity)"
+
+            strokeWidth={4}
+
+            filter="url(#glow)"
+
+            animationDuration={1200}
+
+            connectNulls
+
+            isAnimationActive={false}
+
+            dot={{
+
+              r: 4,
+
+              strokeWidth: 1.5,
+
+              fill: "#60a5fa",
+
+              stroke: "#dbeafe"
+
+            }}
+
+            activeDot={{
+
+              r: 8,
+
+              fill: "#93c5fd",
+
+              stroke: "#ffffff",
+
+              strokeWidth: 2,
+
+              filter:
+                "drop-shadow(0 0 8px #60a5fa)"
+
+            }}
+
+          />
+
+        </AreaChart>
+
+      </ResponsiveContainer>
+
+    </div>
+
+  </div>
+
+{/*heatmap*/}
+
+<div id="heatmap" className="
+relative overflow-hidden
+
+rounded-[28px]
+p-8
+
+border border-violet-400/20
+
+bg-gradient-to-br
+from-violet-500/10
+via-[#0f172a]/80
+to-indigo-500/5
+
+backdrop-blur-xl
+
+shadow-[0_0_40px_rgba(0,0,0,0.45)]
+
+hover:-translate-y-2
+hover:border-violet-400/30
+hover:shadow-[0_0_40px_rgba(167,139,250,0.10)]
+
+transition-all duration-500
+
+before:absolute
 before:inset-0
 before:rounded-[inherit]
 before:p-[1px]
@@ -1138,155 +1592,59 @@ before:bg-gradient-to-b
 before:from-white/[0.08]
 before:to-transparent
 before:pointer-events-none
-relative overflow-hidden
 
-hover:-translate-y-2
-hover:border-cyan-400/20
-hover:bg-white/[0.05]
-hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
-transition-all
-duration-500
 
-            ">
 
-              <h3 className="
+">
+  <div className="
+absolute
+top-[-40px]
+right-[-40px]
+w-[140px]
+h-[140px]
+rounded-full
+blur-3xl
+opacity-20
+bg-current
+"></div>
+
+  <h3 className="
 text-[40px]
 font-bold
 tracking-[-0.05em]
 ">
-  Activity Timeline
+  Activity Heatmap
 </h3>
 
-<p className="
-text-[#8b949e]
-mt-3
-text-[15px]
-">
-  Last 30 days
-</p>
+<div
+  className="
+  mt-8
+  rounded-[20px]
+  border border-white/5
+  bg-black/10
+  p-6
+  backdrop-blur-md
+  relative
+  overflow-hidden
+  "
+>
 
-<div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
-<div className="h-[350px] mt-10">
+  {/* Optional subtle glow */}
+  <div className="
+  absolute
+  inset-0
+  bg-gradient-to-b
+  from-cyan-500/[0.03]
+  to-transparent
+  pointer-events-none
+  "></div>
 
-  <ResponsiveContainer width="100%" height="100%">
-
-  <AreaChart data={data.timeline.slice(-30)}
-  margin={{
-  top: 10,
-  right: 20,
-  left: 0,
-  bottom: 20
-}}>
-
-    <defs>
-
-      <linearGradient id="colorActivity" x1="0" y1="0" x2="0" y2="1">
-
-        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.35}/>
-<stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
-
-      </linearGradient>
-
-    </defs>
-
-    <XAxis
-      dataKey="date"
-      stroke="#334155"
-      tick={{ fill: "rgba(255,255,255,0.45)", fontSize: 11 }}
-      tickLine={false}
-      axisLine={false}
-      minTickGap={35}
-      tickFormatter={(value) => {
-  const date = new Date(value)
-
-  return date.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric"
-  })
-}}
-tickMargin={12}
-axisLine={false}
-tickLine={false}
-    />
-
-    <Tooltip
-      cursor={{
-  stroke: "rgba(255,255,255,0.04)",
-  strokeWidth: 1
-}}
-      contentStyle={{
-        background: "rgba(15,23,42,0.85)",
-        border: "1px solid rgba(255,255,255,0.08)",
-        borderRadius: "16px",
-        color: "white",
-        backdropFilter: "blur(12px)"
-      }}
-       formatter={(value) => [`${value} pushes`, "Activity"]}
-
-  labelFormatter={(label) => {
-  const date = new Date(label)
-
-  return date.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric"
-  })
-}}
-    />
-
-    <Area
-  type="monotone"
-  dataKey="count"
-  stroke="#60a5fa"
-  fill="url(#colorActivity)"
-  strokeWidth={3}
-  animationDuration={1200}
-  connectNulls
-  isAnimationActive={false}
-
-  dot={{
-    r: 3,
-    strokeWidth: 1.5,
-    fill: "#60a5fa",
-    stroke: "#dbeafe"
-  }}
-
-  activeDot={{
-    r: 8,
-    fill: "#93c5fd",
-    stroke: "#ffffff",
-    strokeWidth: 2,
-    filter: "drop-shadow(0 0 8px #60a5fa)"
-  }}
-
-
-  
-/>
-
-   
-
-  </AreaChart>
-
-</ResponsiveContainer>
+  {/* YOUR DOT GRID HERE */}
+  <Heatmap timeline={data.timeline.slice(-90) || []} />
 
 </div>
 
-
-            </div>
-
-
-<div id="heatmap" className="mt-8 p-6 rounded-[32px] bg-white/10 border border-white/10
-hover:-translate-y-2
-hover:border-cyan-400/20
-hover:bg-white/[0.05]
-hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
-transition-all
-duration-500">
-
-  <h2 className="text-4xl font-bold mb-6">
-    Activity Heatmap
-  </h2>
-
-  <Heatmap timeline={data.timeline.slice(-90) || []} />
+  
 
 </div>
 </div>
@@ -1302,30 +1660,40 @@ duration-500">
               {/* AI INSIGHT */}
 
               <div id="insights" className="
-              bg-white/[0.03]
-              border border-white/5
-              rounded-[24px]
-              p-8
-              backdrop-blur-xl
-
-
-              before:absolute
-before:inset-0
-before:rounded-[inherit]
-before:p-[1px]
-before:bg-gradient-to-b
-before:from-white/[0.08]
-before:to-transparent
-before:pointer-events-none
 relative overflow-hidden
 
+rounded-[28px]
+p-8
+
+border border-emerald-400/20
+
+bg-gradient-to-br
+from-emerald-500/10
+via-[#0f172a]/80
+to-cyan-500/5
+
+backdrop-blur-xl
+
 hover:-translate-y-2
-hover:border-cyan-400/20
-hover:bg-white/[0.05]
-hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
-transition-all
-duration-500
-              ">
+hover:border-emerald-400/30
+hover:shadow-[0_0_40px_rgba(16,185,129,0.10)]
+
+transition-all duration-500
+
+">
+
+<div className="
+absolute
+top-[-40px]
+right-[-40px]
+w-[140px]
+h-[140px]
+rounded-full
+blur-3xl
+opacity-20
+bg-current
+"></div>
+
 
                 <div className="mb-4 inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">
   Behavioral Analysis
@@ -1343,7 +1711,8 @@ duration-500
                 text-[#8b949e]
                 leading-[1.9]
                 text-[17px]
-                mt-6
+                mt-8
+leading-[1.8]
                 ">
 
                   {data.insight}
@@ -1356,16 +1725,30 @@ duration-500
 
               {/* DIAGNOSTICS */}
 
-              <div  id="diagnostics" className="
-              bg-white/[0.03]
-              border border-white/5
-              rounded-2xl px-5 py-4
-              p-8
-              backdrop-blur-xl
-              text-sm leading-7
+              <div id="diagnostics" className="
+relative overflow-hidden
 
+rounded-[28px]
+p-8
 
-              before:absolute
+border border-amber-400/20
+
+bg-gradient-to-br
+from-amber-500/10
+via-[#0f172a]/80
+to-orange-500/5
+
+backdrop-blur-xl
+
+shadow-[0_0_40px_rgba(0,0,0,0.45)]
+
+hover:-translate-y-2
+hover:border-amber-400/30
+hover:shadow-[0_0_40px_rgba(251,191,36,0.10)]
+
+transition-all duration-500
+
+before:absolute
 before:inset-0
 before:rounded-[inherit]
 before:p-[1px]
@@ -1373,17 +1756,18 @@ before:bg-gradient-to-b
 before:from-white/[0.08]
 before:to-transparent
 before:pointer-events-none
-relative overflow-hidden
-leading-relaxed
-
-
-hover:-translate-y-2
-hover:border-cyan-400/20
-hover:bg-white/[0.05]
-hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
-transition-all
-duration-500
-              ">
+">
+  <div className="
+absolute
+top-[-40px]
+right-[-40px]
+w-[140px]
+h-[140px]
+rounded-full
+blur-3xl
+opacity-20
+bg-current
+"></div>
 
                 <h3 className="
                 text-[28px]
@@ -1405,10 +1789,10 @@ leading-tight
 
 ${
   index === 0
-    ? "border-blue-400/20 bg-blue-400/10 text-blue-100"
+    ? "border-blue-400/20 bg-blue-500/10 text-blue-100"
     : index === 1
-    ? "border-amber-400/20 bg-amber-400/10 text-amber-100"
-    : "border-emerald-400/20 bg-emerald-400/10 text-emerald-100"
+    ? "border-amber-400/20 bg-amber-500/10 text-amber-100"
+    : "border-emerald-400/20 bg-emerald-500/10 text-emerald-100"
 }`}
     >
 
