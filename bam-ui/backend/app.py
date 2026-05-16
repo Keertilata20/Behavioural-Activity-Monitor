@@ -14,7 +14,7 @@ TOKEN = os.getenv("GITHUB_TOKEN")
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/github/<username>")
+@app.route("/analyze/<username>", methods=["GET"])
 def github_data(username):
 
     print("USERNAME:", username)
