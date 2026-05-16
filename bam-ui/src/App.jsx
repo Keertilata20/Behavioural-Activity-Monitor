@@ -43,6 +43,7 @@ const [error, setError] = useState("");
 
 const [activeSection, setActiveSection] = useState("Dashboard")
 
+const [hasAnalyzed, setHasAnalyzed] = useState(false)
 
 const sectionMap = {
   Dashboard: "dashboard",
@@ -51,6 +52,8 @@ const sectionMap = {
   Insights: "insights",
   Diagnostics: "diagnostics"
 }
+
+
 
 
 const fetchData = () => {
@@ -72,6 +75,7 @@ const fetchData = () => {
         setError("GitHub user not found");
         setData(data);
 
+
         setLoading(false);
 
         return;
@@ -82,6 +86,7 @@ const fetchData = () => {
 
 
       setData(data);
+      setHasAnalyzed(true)
 
       setLoading(false);
 
@@ -98,6 +103,49 @@ const fetchData = () => {
     });
 
 };
+
+
+const getPersona = (data) => {
+
+  if (data.consistency > 70) {
+    return {
+      title: "Consistent Maintainer",
+      description:
+        "Stable contribution rhythm detected with disciplined development cycles."
+    }
+  }
+
+  if (data.peak_time === "Night") {
+    return {
+      title: "Night Owl",
+      description:
+        "Late-hour productivity bursts detected across coding sessions."
+    }
+  }
+
+  if (data.active_days > 50) {
+    return {
+      title: "Sprint Builder",
+      description:
+        "High-volume contribution bursts detected with rapid development momentum."
+    }
+  }
+
+  return {
+    title: "Adaptive Developer",
+    description:
+      "Flexible coding behavior observed across varying contribution patterns."
+  }
+
+}
+
+const persona = hasAnalyzed
+  ? getPersona(data)
+  : {
+      title: "Awaiting Analysis",
+      description:
+        "Enter a GitHub username to generate a behavioral productivity profile."
+    }
 
   return (
 
@@ -385,65 +433,22 @@ px-16 py-10
 
       <div className="flex items-center gap-5 mt-3">
 
-        <div className="w-16 h-[2px] bg-[#3b82f6]"></div>
+        
 
         <h2 className="
-        text-[42px]
+        text-[35px]
         font-semibold
         tracking-[-0.06em]
         text-[#60a5fa]
         ">
-          Burst Coder
+          Developer Rhythm Analysis
         </h2>
 
       </div>
 
     </div>
 
-    {/* Pills */}
-
-    <div className="flex gap-4 mt-10 flex-wrap">
-
-      <div className="
-      px-5
-      py-3
-      rounded-full
-      bg-cyan-500/10
-      border border-cyan-400/20
-      text-cyan-300
-      text-sm
-      shadow-[0_0_30px_rgba(34,211,238,0.08)]
-      ">
-        ⚡ Peak Time: {data.peak_time}
-      </div>
-
-      <div className="
-      px-5
-      py-3
-      rounded-full
-      bg-blue-500/10
-      border border-blue-400/20
-      text-blue-300
-      text-sm
-      shadow-[0_0_30px_rgba(59,130,246,0.08)]
-      ">
-        📈 Active Days: {data.active_days}
-      </div>
-
-      <div className="
-      px-5
-      py-3
-      rounded-full
-      bg-indigo-500/10
-      border border-indigo-400/20
-      text-indigo-300
-      text-sm
-      shadow-[0_0_30px_rgba(99,102,241,0.08)]
-      ">
-        🧠 Rhythm: Burst Driven
-      </div>
-
-    </div>
+    
 
     {/* Description */}
 
@@ -527,8 +532,8 @@ px-16 py-10
 <div
   className="
   relative
-  h-[450px]
-  w-[350px]
+  h-[400px]
+  w-[420px]
   rounded-[40px]
   border border-white/10
   bg-white/[0.04]
@@ -538,6 +543,12 @@ px-16 py-10
   p-10
   flex
   flex-col
+  hover:-translate-y-2
+hover:border-cyan-400/20
+hover:bg-white/[0.05]
+hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
+
+transition-all duration-500
   
   justify-between
 "
@@ -571,67 +582,59 @@ px-16 py-10
     ">
       Behavioural Core
     </p>
+    
 
     <h2 className="
-    text-[40px]
-    leading-[0.9]
+    text-[34px]
+    leading-[1]
     tracking-[-0.08em]
     font-bold
     text-cyan-300
     mt-8
     ">
-      Burst
-      <br />
-      Productivity
-    </h2>
+      
+  {persona.title}
+</h2>
+    <div className="
+absolute
+top-[35%]
+left-[35%]
+w-[220px]
+h-[220px]
+bg-cyan-400/5
+blur-[120px]
+rounded-full
+pointer-events-none
+"></div>
 
     <p className="
     mt-8
     text-slate-400
-    text-[12px]
+    text-[16px]
     leading-8
-    max-w-[400px]
-    leading-9
+    max-w-[420px]
+    leading-[2]
     ">
-      High-intensity contribution bursts with irregular rhythm patterns detected across coding sessions.
+     
+  {persona.description}
+
     </p>
-    <br />
+    
 
   </div>
 {/* Orbital Rings */}
 
-<div className="
-absolute
-bottom-[-180px]
-right-[-140px]
-w-[420px]
-h-[420px]
-rounded-full
-border
-border-cyan-400/10
-"></div>
+<div className="absolute bottom-[-140px] right-[-120px] w-[420px] h-[420px]">
 
-<div className="
-absolute
-bottom-[-120px]
-right-[-80px]
-w-[300px]
-h-[300px]
-rounded-full
-border
-border-cyan-400/10
-"></div>
+  <div className="absolute inset-0 w-[520px]
+h-[520px] rounded-full border border-cyan-400/10"></div>
 
-<div className="
-absolute
-bottom-[120px]
-right-[120px]
-w-3
-h-3
-rounded-full
-bg-cyan-300
-shadow-[0_0_20px_rgba(34,211,238,0.8)]
-"></div>
+  <div className="absolute inset-[60px] w-[380px]
+h-[380px] rounded-full border border-cyan-400/10"></div>
+
+  <div className="absolute top-[110px] left-[70px] w-3 h-3 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.6)]"></div>
+
+</div>
 
   
 
