@@ -28,7 +28,7 @@ function App() {
 
   consistency: 0,
 
-  peak_time: "Loading...",
+  peak_time: "Analyzing...",
 
   timeline: []
 
@@ -44,6 +44,9 @@ const [error, setError] = useState("");
 const [activeSection, setActiveSection] = useState("Dashboard")
 
 const [hasAnalyzed, setHasAnalyzed] = useState(false)
+
+const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 
 const sectionMap = {
   Dashboard: "dashboard",
@@ -222,24 +225,208 @@ const persona = hasAnalyzed
 </div>
 
 
+
+
+{/* MOBILE TOPBAR */}
+
+<div
+  className="
+  lg:hidden
+  fixed
+  top-0
+  left-0
+  right-0
+  z-[10001]
+  h-[72px]
+  px-5
+  flex
+  items-center
+  justify-between
+  border-b
+  border-white/10
+  bg-black/40
+  backdrop-blur-2xl
+  "
+>
+
+  {/* Logo */}
+
+  <div className="flex items-center gap-3">
+
+    <h1 className="text-3xl font-black tracking-[-0.08em] text-white">
+      BAM
+    </h1>
+
+  </div>
+
+  {/* Mobile Button */}
+
+ <button
+  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+  className="
+  w-11
+  h-11
+  rounded-xl
+  border
+  border-cyan-400/20
+  bg-cyan-400/10
+  flex
+  items-center
+  justify-center
+  text-cyan-300
+  "
+>
+  ☰
+</button>
+</div>
+
+{/* MOBILE MENU */}
+
+<div
+  className={`
+ lg:hidden
+fixed
+top-[80px]
+left-0
+bottom-0
+w-[280px]
+z-[10000]
+bg-[#020617]
+border-r
+border-white/10
+backdrop-blur-2xl
+px-6
+py-8
+flex
+flex-col
+gap-4
+transition-all
+duration-300
+
+
+
+
+  ${
+    mobileMenuOpen
+      ? "translate-x-0"
+      : "-translate-x-full"
+  }
+  `}
+>
+
+  {[
+    "Dashboard",
+    "Timeline",
+    "Heatmap",
+    "Insights",
+    "Diagnostics",
+  ].map((item) => (
+
+    <button
+      key={item}
+
+      onClick={() => {
+
+        setActiveSection(item);
+
+        setMobileMenuOpen(false);
+
+        document
+          .getElementById(item.toLowerCase())
+          ?.scrollIntoView({
+            behavior: "smooth",
+          });
+
+      }}
+
+      className={`
+      w-full
+      text-left
+      px-5
+      py-4
+      rounded-2xl
+      border
+      transition-all
+      duration-300
+
+      hover:border-cyan-400/30
+hover:bg-cyan-400/15
+hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]
+hover:-translate-y-1
+
+      ${
+        activeSection === item
+          ? `
+            border-cyan-400/20
+            bg-cyan-400/10
+            text-cyan-300
+          `
+          : `
+            border-white/10
+            bg-white/[0.03]
+            text-slate-300
+          `
+      }
+      `}
+    >
+
+      <div className="flex items-center gap-3">
+
+  <div
+    className={`
+    w-2 h-2 rounded-full bg-cyan-300 transition-all duration-300
+
+    ${
+      activeSection === item
+        ? "opacity-100"
+        : "opacity-0"
+    }
+    `}
+  ></div>
+
+  <span>{item}</span>
+
+</div>
+
+    </button>
+
+  ))}
+
+</div>
+{mobileMenuOpen && (
+  <div
+    onClick={() => setMobileMenuOpen(false)}
+    className="
+    fixed
+    inset-0
+    bg-black/50
+    backdrop-blur-sm
+    z-[9998]
+    lg:hidden
+    "
+  ></div>
+)}
+
+
 {/* SIDEBAR */}
 
-<aside
-  className="
-  relative
-  w-[260px]
-  min-h-screen
-  border-r
-  border-white/10
-  bg-black/20
-  backdrop-blur-xl
-  sticky
-  top-0
-  px-8
-  py-10
-  overflow-hidden
-"
->
+<aside className="
+hidden lg:flex
+flex-col
+relative
+w-[260px]
+min-h-screen
+border-r
+border-white/10
+bg-black/20
+backdrop-blur-xl
+sticky
+top-0
+px-8
+py-10
+overflow-hidden
+">
+  
 
   {/* Ambient Glow */}
 
@@ -366,24 +553,28 @@ const persona = hasAnalyzed
 
 
 
+
+
+
       {/* MAIN */}
 
       <main className="
       relative z-10
       flex-1
       overflow-y-auto
-      
+      pt-[90px] lg:pt-0
       ">
+        
 
        <div id="dashboard"  className="
 max-w-[1180px]
 mx-auto
-px-16 py-10
+px-6 md:px-10 xl:px-20
 ">
 
           {/* HERO */}
 
-<div className="grid grid-cols-[1fr_520px] gap-16 items-start">
+<div className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-8 items-start">
 
   {/* LEFT SIDE */}
 
@@ -420,7 +611,7 @@ px-16 py-10
     <div className="mt-8">
 
       <h1 className="
-      text-[92px]
+      text-[70px] md:text-[110px] xl:text-[120px]
       font-black
       tracking-[-0.08em]
       leading-[0.88]
@@ -436,31 +627,84 @@ px-16 py-10
         
 
         <h2 className="
-        text-[35px]
+        text-[28px] md:text-[30px] xl:text-[38px]
         font-semibold
         tracking-[-0.06em]
         text-[#60a5fa]
         ">
-          Developer Rhythm Analysis
+          Developer Activity Intelligence
         </h2>
 
       </div>
 
     </div>
 
+    {/* Pills*/}
+    <div className="flex gap-4 mt-10 flex-wrap">
+
+  <div
+    className="
+    px-5
+    py-3
+    rounded-full
+    bg-cyan-500/10
+    border border-cyan-400/20
+    text-cyan-300
+    text-sm
+    shadow-[0_0_30px_rgba(34,211,238,0.08)]
+    backdrop-blur-xl
+    "
+  >
+    ✦ Behavior Mapping
+  </div>
+
+  <div
+    className="
+    px-5
+    py-3
+    rounded-full
+    bg-blue-500/10
+    border border-blue-400/20
+    text-blue-300
+    text-sm
+    shadow-[0_0_30px_rgba(59,130,246,0.08)]
+    backdrop-blur-xl
+    "
+  >
+    ✦ Pattern Intelligence
+  </div>
+
+  <div
+    className="
+    px-5
+    py-3
+    rounded-full
+    bg-indigo-500/10
+    border border-indigo-400/20
+    text-indigo-300
+    text-sm
+    shadow-[0_0_30px_rgba(99,102,241,0.08)]
+    backdrop-blur-xl
+    "
+  >
+    ✦ Contribution Signals
+  </div>
+
+</div>
+
     
 
     {/* Description */}
 
     <p className="
-    text-[22px]
+    text-[16px] md:text-[18px] xl:text-[22px]
     leading-[1.8]
     text-[#94a3b8]
     mt-14
     max-w-[780px]
     font-[350]
     ">
-      Behavioral analytics engine for developer productivity patterns.
+      Analyze coding rhythm, contribution intensity, and behavioural development patterns from GitHub activity.
     </p>
 
     {/* Search */}
@@ -532,8 +776,9 @@ px-16 py-10
 <div
   className="
   relative
-  h-[400px]
-  w-[420px]
+  min-h-[220px] xl:h-[350px]
+  min-w-[200px] xl:w-[380px]
+  
   rounded-[40px]
   border border-white/10
   bg-white/[0.04]
@@ -586,6 +831,7 @@ transition-all duration-500
 
     <h2 className="
     text-[34px]
+    max-w-[280px]
     leading-[1]
     tracking-[-0.08em]
     font-bold
@@ -608,7 +854,7 @@ pointer-events-none
 "></div>
 
     <p className="
-    mt-8
+    mt-5
     text-slate-400
     text-[16px]
     leading-8
@@ -624,7 +870,7 @@ pointer-events-none
   </div>
 {/* Orbital Rings */}
 
-<div className="absolute bottom-[-140px] right-[-120px] w-[420px] h-[420px]">
+<div className="absolute bottom-[-200px] right-[-60px] w-[420px] h-[420px]">
 
   <div className="absolute inset-0 w-[520px]
 h-[520px] rounded-full border border-cyan-400/10"></div>
@@ -632,7 +878,7 @@ h-[520px] rounded-full border border-cyan-400/10"></div>
   <div className="absolute inset-[60px] w-[380px]
 h-[380px] rounded-full border border-cyan-400/10"></div>
 
-  <div className="absolute top-[110px] left-[70px] w-3 h-3 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.6)]"></div>
+  <div className="absolute top-[120px] left-[100px] w-3 h-3 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.6)]"></div>
 
 </div>
 
@@ -653,21 +899,31 @@ h-[380px] rounded-full border border-cyan-400/10"></div>
           ">
 
             <div className="
-            bg-[#0f172a]/70
-            border border-white/[0.06]
-            rounded-[28px]
-            p-7
-            backdrop-blur-xl
-            hover:-translate-y-2
-hover:border-cyan-400/20
-hover:bg-white/[0.05]
-hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
+relative
+overflow-hidden
 
-transition-all duration-500
-            bg-gradient-to-b from-white/[0.06] to-white/[0.015]
-            text-[52px]
-            shadow-[0_0_40px_rgba(0,0,0,0.45)]
-            before:absolute
+rounded-[28px]
+p-7
+
+border border-amber-400/20
+
+backdrop-blur-xl
+
+bg-gradient-to-br
+from-amber-500/10
+via-[#0f172a]/80
+to-orange-500/5
+
+shadow-[0_0_40px_rgba(0,0,0,0.45)]
+
+hover:-translate-y-2
+hover:border-amber-400/30
+hover:shadow-[0_0_40px_rgba(251,191,36,0.10)]
+
+transition-all
+duration-500
+
+before:absolute
 before:inset-0
 before:rounded-[inherit]
 before:p-[1px]
@@ -675,9 +931,7 @@ before:bg-gradient-to-b
 before:from-white/[0.08]
 before:to-transparent
 before:pointer-events-none
-relative overflow-hidden
-
-            ">
+">
 
               <p className="text-[#8b949e] text-sm">
                 Recent Activity Streak
@@ -685,35 +939,55 @@ relative overflow-hidden
 
               <h2 className="
               text-[42px]
+              text-amber-400
               font-bold
               tracking-[-0.05em]
               mt-4
               ">
                 {data.highest_streak}
               </h2>
+              <div className="
+absolute
+top-[-30px]
+right-[-30px]
+w-[120px]
+h-[120px]
+rounded-full
+blur-3xl
+opacity-20
+bg-current
+"></div>
 
             </div>
 
 
 
             <div className="
-            bg-[#0f172a]/70
-            border border-white/[0.06]
-            
-            rounded-[28px]
-            p-7
-            backdrop-blur-xl
-            hover:-translate-y-2
+relative
+overflow-hidden
+
+rounded-[28px]
+p-7
+
+border border-cyan-400/20
+
+backdrop-blur-xl
+
+bg-gradient-to-br
+from-cyan-500/10
+via-[#0f172a]/80
+to-blue-500/5
+
+shadow-[0_0_40px_rgba(0,0,0,0.45)]
+
+hover:-translate-y-2
 hover:border-cyan-400/20
-hover:bg-white/[0.05]
 hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
-transition-all duration-500
-            text-[52px]
-            shadow-[0_0_40px_rgba(0,0,0,0.45)]
-            bg-gradient-to-b from-white/[0.06] to-white/[0.015]
 
+transition-all
+duration-500
 
-            before:absolute
+before:absolute
 before:inset-0
 before:rounded-[inherit]
 before:p-[1px]
@@ -721,8 +995,7 @@ before:bg-gradient-to-b
 before:from-white/[0.08]
 before:to-transparent
 before:pointer-events-none
-relative overflow-hidden
-            ">
+">
 
               <p className="text-[#8b949e] text-sm">
                 Consistency
@@ -730,35 +1003,55 @@ relative overflow-hidden
 
               <h2 className="
               text-[42px]
+              text-cyan-400
               font-bold
               tracking-[-0.05em]
               mt-4
               ">
                 {data.consistency}%
               </h2>
+              <div className="
+absolute
+top-[-30px]
+right-[-30px]
+w-[120px]
+h-[120px]
+rounded-full
+blur-3xl
+opacity-20
+bg-current
+"></div>
 
             </div>
 
 
 
             <div className="
-            bg-[#0f172a]/70
-            border border-white/[0.06]
-            
-            rounded-[28px]
-            p-7
-            backdrop-blur-xl
-            hover:-translate-y-2
-hover:border-cyan-400/20
-hover:bg-white/[0.05]
-hover:shadow-[0_0_40px_rgba(34,211,238,0.08)]
-transition-all duration-500
-            bg-gradient-to-b from-white/[0.06] to-white/[0.015]
-            shadow-[0_0_40px_rgba(0,0,0,0.45)]
+relative
+overflow-hidden
 
+rounded-[28px]
+p-7
 
+border border-violet-400/20
 
-            before:absolute
+backdrop-blur-xl
+
+bg-gradient-to-br
+from-violet-500/10
+via-[#0f172a]/80
+to-indigo-500/5
+
+shadow-[0_0_40px_rgba(0,0,0,0.45)]
+
+hover:-translate-y-2
+hover:border-violet-400/30
+hover:shadow-[0_0_40px_rgba(167,139,250,0.10)]
+
+transition-all
+duration-500
+
+before:absolute
 before:inset-0
 before:rounded-[inherit]
 before:p-[1px]
@@ -766,8 +1059,8 @@ before:bg-gradient-to-b
 before:from-white/[0.08]
 before:to-transparent
 before:pointer-events-none
-relative overflow-hidden
-            ">
+
+">
 
               <p className="text-[#8b949e] text-sm">
                 Peak Time
@@ -777,12 +1070,25 @@ relative overflow-hidden
               text-[36px]
 leading-tight
 max-w-[220px]
+text-violet-400
+
               font-bold
               tracking-[-0.05em]
               mt-5
               ">
                  {data.peak_time}
               </h2>
+              <div className="
+absolute
+top-[-30px]
+right-[-30px]
+w-[120px]
+h-[120px]
+rounded-full
+blur-3xl
+opacity-20
+bg-current
+"></div>
 
             </div>
 
