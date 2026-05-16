@@ -1,84 +1,237 @@
+<div align="center">
+
 # BAM
 ### Behavioural Activity Monitor
 
-A futuristic GitHub behavioural intelligence dashboard that analyzes developer contribution rhythms, consistency patterns, productivity bursts, and coding timelines using GitHub GraphQL data.
+<img src="https://img.shields.io/badge/Behavioural-Intelligence-00d9ff?style=for-the-badge&logo=react&logoColor=white" />
+<img src="https://img.shields.io/badge/AI--Inspired-Analytics-7c3aed?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Responsive-System-0ea5e9?style=for-the-badge" />
 
-![BAM Preview](./preview.png)
+<br/>
+<br/>
+
+A futuristic behavioural intelligence dashboard that transforms GitHub contribution activity into adaptive developer personas, contribution rhythm analytics, productivity diagnostics, and visual behavioural insights.
+
+<br/>
+
+<img width="100%" src="./assets/bam-preview.png" />
+
+</div>
+
+---
+
+# ✦ System Overview
+
+BAM is not a traditional GitHub statistics dashboard.
+
+It is a behavioural intelligence system designed to analyze:
+- coding rhythm
+- contribution psychology
+- consistency behaviour
+- burst productivity
+- development discipline
+- activity momentum
+
+using GitHub GraphQL contribution data.
+
+The interface was designed with cinematic system aesthetics inspired by:
+- futuristic intelligence terminals
+- adaptive monitoring systems
+- atmospheric UI environments
+- glassmorphism dashboards
+- sci-fi operating systems
 
 ---
 
-## ✨ Features
+# ✦ Core Intelligence Features
 
-- Behavioural developer profiling
-- Dynamic persona generation
-- Contribution heatmap visualization
-- Activity timeline analytics
-- Consistency scoring
-- Peak productivity detection
-- AI-style behavioural insights
-- Responsive futuristic UI
-- Mobile adaptive navigation
-- Smooth scroll progress system
+<table>
+<tr>
 
----
+<td width="50%">
 
 ## 🧠 Behavioural Personas
 
-BAM dynamically detects contribution behaviour patterns and generates adaptive personas such as:
+Dynamic persona generation based on contribution behaviour.
 
+Examples:
 - Consistent Maintainer
 - Burst Coder
 - Adaptive Developer
-- Night Architect
 - Momentum Builder
+- Night Architect
+
+</td>
+
+<td width="50%">
+
+## 📈 Activity Timeline
+
+Advanced timeline visualization using:
+- contribution spikes
+- behavioural frequency
+- rhythm mapping
+- intensity tracking
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="50%">
+
+## 🌌 Behavioural Diagnostics
+
+Developer analysis system including:
+- streak intelligence
+- consistency scoring
+- productivity rhythm
+- contribution density
+
+</td>
+
+<td width="50%">
+
+## 📱 Responsive Interface
+
+Fully adaptive responsive system:
+- mobile navigation
+- dynamic sidebar
+- animated interactions
+- scroll intelligence
+- adaptive scaling
+
+</td>
+
+</tr>
+</table>
 
 ---
 
-## ⚙️ Tech Stack
+# ✦ Interface Preview
 
-### Frontend
-- React
-- Vite
-- Tailwind CSS
-- Recharts
-- Framer Motion
+## Desktop System
 
-### Backend
-- Flask
-- GitHub GraphQL API
-- Python
-
-### Deployment
-- Vercel (Frontend)
-- Render (Backend)
+<img width="100%" src="./assets/dashboard-preview.png" />
 
 ---
 
-## 🚀 Live Demo
+## Behavioural Timeline Engine
 
-### Frontend
-[View BAM Dashboard](YOUR_VERCEL_LINK)
-
-### Backend API
-[Render Backend](YOUR_RENDER_LINK)
+<img width="100%" src="./assets/timeline-preview.png" />
 
 ---
 
-## 📊 API Endpoint
+## Contribution Heatmap
 
-```bash
+<img width="100%" src="./assets/heatmap-preview.png" />
+
+---
+
+# ✦ Behavioural Analysis Engine
+
+BAM interprets GitHub activity patterns through behavioural heuristics.
+
+### Example Logic
+
+| Behaviour Pattern | Generated Persona |
+|---|---|
+| High consistency + long streaks | Consistent Maintainer |
+| Intense sporadic activity bursts | Burst Coder |
+| Mixed adaptive rhythms | Adaptive Developer |
+| Late-night activity concentration | Night Architect |
+
+---
+
+# ✦ Technology Stack
+
+<div align="center">
+
+| Frontend | Backend | Visualization | Deployment |
+|---|---|---|---|
+| React | Flask | Recharts | Vercel |
+| Vite | Python | Tailwind CSS | Render |
+| Framer Motion | GitHub GraphQL API | Glassmorphism UI | Cloud Deployment |
+
+</div>
+
+---
+
+# ✦ System Architecture
+
+```text
+GitHub GraphQL API
+          ↓
+     Flask Backend
+          ↓
+ Behavioural Analysis Engine
+          ↓
+    React Intelligence UI
+          ↓
+ Dynamic Persona Visualization
+```
+
+---
+
+# ✦ API Endpoint
+
+## Analyze Developer Behaviour
+
+```http
 GET /analyze/<github_username>
 ```
 
-Example:
+### Example
 
-```bash
+```http
 /analyze/torvalds
+```
+
+### Sample Response
+
+```json
+{
+  "persona": "Consistent Maintainer",
+  "consistency": 96,
+  "peak_time": "Night",
+  "streak": 98
+}
 ```
 
 ---
 
-## 🔐 Environment Variables
+# ✦ Local Development
+
+## Clone Repository
+
+```bash
+git clone https://github.com/Keertilata20/Behavioural-Activity-Monitor.git
+```
+
+---
+
+## Frontend Setup
+
+```bash
+cd bam-ui
+npm install
+npm run dev
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+python app.py
+```
+
+---
+
+# ✦ Environment Variables
 
 Create a `.env` file inside:
 
@@ -94,77 +247,60 @@ GITHUB_TOKEN=your_github_token
 
 ---
 
-## 🖥️ Local Setup
+# ✦ Live Deployment
 
-### Clone Repository
+## Frontend
 
-```bash
-git clone https://github.com/YOUR_USERNAME/Behavioural-Activity-Monitor.git
-```
+[Launch BAM Dashboard](https://behavioural-activity-monitor.vercel.app/)
 
----
+## Backend API
 
-### Frontend Setup
-
-```bash
-cd bam-ui
-npm install
-npm run dev
-```
+[Render Backend](https://bam-dashboard.onrender.com)
 
 ---
 
-### Backend Setup
+# ✦ Design Philosophy
 
-```bash
-cd backend
-pip install -r requirements.txt
-python app.py
-```
+BAM was designed around the idea that contribution data is not merely statistical.
 
----
+It reflects:
+- discipline
+- momentum
+- burnout cycles
+- behavioural adaptation
+- productivity psychology
 
-## 🌌 Design Philosophy
-
-BAM was designed as a behavioural intelligence interface rather than a traditional analytics dashboard.
-
-The interface focuses on:
-- atmospheric depth
-- contribution psychology
-- futuristic system aesthetics
-- adaptive behavioural interpretation
-- cinematic developer analytics
+The interface intentionally avoids conventional analytics aesthetics in favour of atmospheric behavioural intelligence visualization.
 
 ---
 
-## 📱 Responsive Design
+# ✦ Future Enhancements
 
-BAM includes:
-- responsive sidebar system
-- mobile hamburger navigation
-- adaptive layouts
-- animated scroll indicators
-- fluid component scaling
-
----
-
-## 🧪 Future Improvements
-
-- AI-generated productivity reports
-- Weekly behavioural summaries
-- Contribution forecasting
-- Team behavioural analytics
-- GitHub repository intelligence
-- Exportable insight reports
+- AI-generated behavioural reports
+- productivity forecasting
+- contribution prediction models
+- repository intelligence
+- weekly behavioural summaries
+- developer comparison systems
+- exportable analytics reports
+- animated activity replay system
 
 ---
 
-## 👤 Author
+# ✦ Author
 
-Keerti Choudhury
+## Keerti Lata Choudhury
+
+Designed and engineered as a behavioural intelligence system for developer analytics.
 
 ---
 
-## ⭐ Support
+<div align="center">
 
-If you enjoyed BAM, consider starring the repository.
+# 🌌 BAM
+
+### Behavioural Activity Monitor
+
+Intelligence beyond statistics.
+
+</div>
