@@ -130,10 +130,8 @@ Fully adaptive responsive system:
 ## Behavioural Timeline Engine
 
 <div align="center">
-<img width="78%" src="./assets/timeline.png" />
+<img height="50%" width="78%" src="./assets/timeline.png" />
 </div>
-
----
 
 ---
 
@@ -141,7 +139,7 @@ Fully adaptive responsive system:
 #### Behavioural density visualization
 
 <div align="center">
-<img width="78%" src="./assets/heatmap.png" />
+<img height="50%" width="78%" src="./assets/heatmap.png" />
 </div>
 
 ---
@@ -312,15 +310,6 @@ Designed and engineered as a behavioural intelligence system for developer analy
 
 ---
 
-<div align="center">
-
-# 🌌 BAM
-
-### Behavioural Activity Monitor
-
-Intelligence beyond statistics.
-
-</div>
-
----
+<div align="center" width="80%">
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=yourrepo)
+</div>
