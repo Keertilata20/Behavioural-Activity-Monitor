@@ -19,7 +19,7 @@
 
 
 <div align="center" width="80%">
-A futuristic behavioural intelligence dashboard that transforms GitHub contribution activity into adaptive developer personas, contribution rhythm analytics, productivity diagnostics, and visual behavioural insights.
+A futuristic behavioural intelligence dashboard that transforms GitHub contribution activity into adaptive developer personas, contribution rhythm analytics, productivity diagnostics and visual behavioural insights.
 </div>
 
 <br/>
