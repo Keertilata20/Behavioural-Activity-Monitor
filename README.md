@@ -12,7 +12,7 @@
 <br/>
 <br/>
 
-> ***Intelligence beyond statistics.***
+> ***Intelligence beyond statistics***
 
 <br/>
 
