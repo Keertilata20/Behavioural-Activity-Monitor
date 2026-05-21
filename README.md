@@ -44,7 +44,7 @@ It is a behavioural intelligence system designed to analyze:
 
 using GitHub GraphQL contribution data.
 
-The interface was designed with cinematic system aesthetics inspired by:
+The interface was designed with cinematic system aesthetics inspired by :
 - futuristic intelligence terminals
 - adaptive monitoring systems
 - atmospheric UI environments
