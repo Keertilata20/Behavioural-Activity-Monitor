@@ -34,7 +34,7 @@ A futuristic behavioural intelligence dashboard that transforms GitHub contribut
 
 BAM is not a traditional GitHub statistics dashboard.
 
-It is a behavioural intelligence system designed to analyze:
+It is a behavioural intelligence system designed to analyze :
 - coding rhythm
 - contribution psychology
 - consistency behaviour
