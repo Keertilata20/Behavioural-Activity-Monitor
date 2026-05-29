@@ -180,13 +180,13 @@ BAM interprets GitHub activity patterns through behavioural heuristics.
 # ✦ System Architecture
 
 ```text
-GitHub GraphQL API
+    GitHub GraphQL API
           ↓
-     Flask Backend
+       Flask Backend
           ↓
  Behavioural Analysis Engine
           ↓
-    React Intelligence UI
+      React Intelligence UI
           ↓
  Dynamic Persona Visualization
 ```
@@ -204,7 +204,7 @@ GET /analyze/<github_username>
 ### Example
 
 ```http
-/analyze/torvalds
+/analyze/Keertilata20
 ```
 
 ### Sample Response
