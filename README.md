@@ -140,7 +140,7 @@ Fully adaptive responsive system:
 ---
 
 ## ✦ Contribution Heatmap Matrix
-#### Visual behavioral density and activity distribution system
+#### Visual behavioural density and activity distribution system
 
 <div align="center">
 <img height="50%" width="78%" src="./assets/heatmap.png" />
