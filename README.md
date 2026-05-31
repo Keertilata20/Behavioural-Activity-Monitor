@@ -156,7 +156,7 @@ BAM interprets GitHub activity patterns through behavioural heuristics.
 
 | Behaviour Pattern | Generated Persona |
 |---|---|
-| High consistency + long streaks | Consistent Maintainer |
+| High consistency & long streaks | Consistent Maintainer |
 | Intense sporadic activity bursts | Burst Coder |
 | Mixed adaptive rhythms | Adaptive Developer |
 | Late-night activity concentration | Night Architect |
