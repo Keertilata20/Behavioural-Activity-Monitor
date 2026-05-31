@@ -296,7 +296,6 @@ The interface intentionally avoids conventional analytics aesthetics in favour o
 # ✦ Future Enhancements
 
 - AI-generated behavioural reports
-- productivity forecasting
 - contribution prediction models
 - repository intelligence
 - weekly behavioural summaries
