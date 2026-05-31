@@ -165,7 +165,7 @@ BAM interprets GitHub activity patterns through behavioural heuristics.
 
 # ✦ Technology Stack
 
-<div align="center">
+
 
 | Frontend | Backend | Visualization | Deployment |
 |---|---|---|---|
@@ -173,7 +173,7 @@ BAM interprets GitHub activity patterns through behavioural heuristics.
 | Vite | Python | Tailwind CSS | Render |
 | Framer Motion | GitHub GraphQL API | Glassmorphism UI | Cloud Deployment |
 
-</div>
+
 
 ---
 
