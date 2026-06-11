@@ -68,8 +68,9 @@ Examples:
 - Consistent Maintainer
 - Burst Coder
 - Adaptive Developer
+- Night Architect 
 - Momentum Builder
-- Night Architect
+
 
 </td>
 
