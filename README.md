@@ -39,8 +39,9 @@ It is a behavioural intelligence system designed to analyze :
 - contribution psychology
 - consistency behaviour
 - burst productivity
+- activity momentum 
 - development discipline
-- activity momentum
+
 
 using GitHub GraphQL contribution data.
 
