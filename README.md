@@ -47,9 +47,9 @@ using GitHub GraphQL contribution data.
 
 The interface was designed with cinematic system aesthetics inspired by :
 - futuristic intelligence terminals
+- glassmorphism dashboards
 - adaptive monitoring systems
 - atmospheric UI environments
-- glassmorphism dashboards
 - sci-fi operating systems
 
 ---
