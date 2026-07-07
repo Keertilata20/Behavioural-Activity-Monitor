@@ -81,9 +81,9 @@ Examples:
 
 Advanced timeline visualization using:
 - contribution spikes
-- behavioural frequency
 - rhythm mapping
 - intensity tracking
+- behavioural frequency
 
 </td>
 
