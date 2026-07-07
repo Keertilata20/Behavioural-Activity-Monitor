@@ -302,8 +302,8 @@ The interface intentionally avoids conventional analytics aesthetics in favour o
 - repository intelligence
 - weekly behavioural summaries
 - developer comparison systems
-- exportable analytics reports
 - animated activity replay system
+- exportable analytics reports
 
 ---
 
